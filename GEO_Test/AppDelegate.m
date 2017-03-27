@@ -96,7 +96,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
-                                                        message: [NSString stringWithFormat:@"Exit location - %@", name]
+                                                        message: [NSString stringWithFormat:@"Exited location - %@", name]
                                                        delegate: nil
                                               cancelButtonTitle: @"Ok"
                                               otherButtonTitles: nil, nil];
@@ -112,7 +112,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
-                                                        message: [NSString stringWithFormat:@"Dwell location - %@", name]
+                                                        message: [NSString stringWithFormat:@"Dwelled in location - %@", name]
                                                        delegate: nil
                                               cancelButtonTitle: @"Ok"
                                               otherButtonTitles: nil, nil];
