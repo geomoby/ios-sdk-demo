@@ -24,6 +24,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	// Notifications permission
+	if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
+	{
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+	
+
     // Geomoby init
     NSDictionary *tags = @{
                            @"gender" : @"female",
