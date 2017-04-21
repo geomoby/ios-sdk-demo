@@ -31,6 +31,11 @@
     }
 
 
+    // Last report timer
+    _mFirstSend = false;
+    [self updateReportTime];
+
+
     // Geomoby init
     NSDictionary *tags = @{
                            @"gender" : @"female",
