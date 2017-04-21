@@ -25,11 +25,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Notifications permission
-	if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
-	{
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
+    {
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
-	
+
 
     // Geomoby init
     NSDictionary *tags = @{
@@ -86,20 +86,25 @@
 -(void)eventEnterCallback:(NSString *)name
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
-                                                        message: [NSString stringWithFormat:@"Entered location - %@", name]
-                                                       delegate: nil
-                                              cancelButtonTitle: @"Ok"
-                                              otherButtonTitles: nil, nil];
-        [alert show];
-        
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
-        notification.alertBody = [NSString stringWithFormat:@"Entered location - %@", name];
-        notification.alertAction = @"Ok";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        notification.applicationIconBadgeNumber = 1;
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
+            notification.alertBody = [NSString stringWithFormat:@"Entered location - %@", name];
+            notification.alertAction = @"Ok";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 1;
+            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
+                                                            message: [NSString stringWithFormat:@"Entered location - %@", name]
+                                                           delegate: nil
+                                                  cancelButtonTitle: @"Ok"
+                                                  otherButtonTitles: nil, nil];
+            [alert show];
+        }
     });
 }
 
@@ -110,20 +115,25 @@
 -(void)eventExitCallback:(NSString *)name
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
-                                                        message: [NSString stringWithFormat:@"Exited location - %@", name]
-                                                       delegate: nil
-                                              cancelButtonTitle: @"Ok"
-                                              otherButtonTitles: nil, nil];
-        [alert show];
-        
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
-        notification.alertBody = [NSString stringWithFormat:@"Exited location - %@", name];
-        notification.alertAction = @"Ok";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        notification.applicationIconBadgeNumber = 2;
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
+            notification.alertBody = [NSString stringWithFormat:@"Exited location - %@", name];
+            notification.alertAction = @"Ok";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 2;
+            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
+                                                            message: [NSString stringWithFormat:@"Exited location - %@", name]
+                                                           delegate: nil
+                                                  cancelButtonTitle: @"Ok"
+                                                  otherButtonTitles: nil, nil];
+            [alert show];
+        }
     });
 }
 
@@ -134,20 +144,25 @@
 -(void)eventDwellCallback:(NSString *)name
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
-                                                        message: [NSString stringWithFormat:@"Dwelled in location - %@", name]
-                                                       delegate: nil
-                                              cancelButtonTitle: @"Ok"
-                                              otherButtonTitles: nil, nil];
-        [alert show];
-        
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
-        notification.alertBody = [NSString stringWithFormat:@"Dwelled in location - %@", name];
-        notification.alertAction = @"Ok";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        notification.applicationIconBadgeNumber = 3;
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
+            notification.alertBody = [NSString stringWithFormat:@"Dwelled in location - %@", name];
+            notification.alertAction = @"Ok";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 3;
+            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        }
+        else
+        {
+	        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
+                                                            message: [NSString stringWithFormat:@"Dwelled in location - %@", name]
+                                                           delegate: nil
+                                                  cancelButtonTitle: @"Ok"
+                                                  otherButtonTitles: nil, nil];
+            [alert show];
+        }
     });
 }
 
@@ -158,20 +173,25 @@
 -(void)actionBasicCallback:(GeomobyActionBasic *)message
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: [message getTitle]
-                                                        message: [message getBody]
-                                                       delegate: nil
-                                              cancelButtonTitle: @"Ok"
-                                              otherButtonTitles: nil, nil];
-        [alert show];
-        
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
-        notification.alertBody = [NSString stringWithFormat:@"Body - %@, Title - %@", [message getTitle], [message getBody]];
-        notification.alertAction = @"Ok";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        notification.applicationIconBadgeNumber = 4;
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
+            notification.alertBody = [NSString stringWithFormat:@"Body - %@, Title - %@", [message getTitle], [message getBody]];
+            notification.alertAction = @"Ok";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 4;
+            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: [message getTitle]
+                                                            message: [message getBody]
+                                                           delegate: nil
+                                                  cancelButtonTitle: @"Ok"
+                                                  otherButtonTitles: nil, nil];
+            [alert show];
+        }
     });
 }
 
@@ -182,20 +202,25 @@
 -(void)actionDataCallback:(GeomobyActionData *)data
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: [data getValue:@"Key1"]
-                                                        message: [data getValue:@"Key2"]
-                                                       delegate: nil
-                                              cancelButtonTitle: @"Ok"
-                                              otherButtonTitles: nil, nil];
-        [alert show];
-        
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
-        notification.alertBody = [NSString stringWithFormat:@"Key1 - %@, Key1 - %@", [data getValue:@"Key1"], [data getValue:@"Key2"]];
-        notification.alertAction = @"Ok";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        notification.applicationIconBadgeNumber = 5;
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
+            notification.alertBody = [NSString stringWithFormat:@"Key1 - %@, Key1 - %@", [data getValue:@"Key1"], [data getValue:@"Key2"]];
+            notification.alertAction = @"Ok";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 5;
+            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: [data getValue:@"Key1"]
+                                                            message: [data getValue:@"Key2"]
+                                                           delegate: nil
+                                                  cancelButtonTitle: @"Ok"
+                                                  otherButtonTitles: nil, nil];
+            [alert show];
+        }
     });
 }
 
