@@ -27,7 +27,7 @@
 	// Notifications permission
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
     {
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
     }
 
 
@@ -73,10 +73,7 @@
 
 
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-}
+- (void)applicationDidBecomeActive:(UIApplication *)application {}
 
 
 
@@ -101,7 +98,6 @@
             notification.alertBody = [NSString stringWithFormat:@"Entered location - %@", name];
             notification.alertAction = @"Ok";
             notification.soundName = UILocalNotificationDefaultSoundName;
-            notification.applicationIconBadgeNumber = 1;
             [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
         else
@@ -130,7 +126,6 @@
             notification.alertBody = [NSString stringWithFormat:@"Exited location - %@", name];
             notification.alertAction = @"Ok";
             notification.soundName = UILocalNotificationDefaultSoundName;
-            notification.applicationIconBadgeNumber = 2;
             [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
         else
@@ -159,7 +154,6 @@
             notification.alertBody = [NSString stringWithFormat:@"Dwelled in location - %@", name];
             notification.alertAction = @"Ok";
             notification.soundName = UILocalNotificationDefaultSoundName;
-            notification.applicationIconBadgeNumber = 3;
             [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
         else
@@ -188,7 +182,6 @@
             notification.alertBody = [NSString stringWithFormat:@"Body - %@, Title - %@", [message getTitle], [message getBody]];
             notification.alertAction = @"Ok";
             notification.soundName = UILocalNotificationDefaultSoundName;
-            notification.applicationIconBadgeNumber = 4;
             [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
         else
@@ -217,7 +210,6 @@
             notification.alertBody = [NSString stringWithFormat:@"Key1 - %@, Key1 - %@", [data getValue:@"Key1"], [data getValue:@"Key2"]];
             notification.alertAction = @"Ok";
             notification.soundName = UILocalNotificationDefaultSoundName;
-            notification.applicationIconBadgeNumber = 5;
             [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
         else
