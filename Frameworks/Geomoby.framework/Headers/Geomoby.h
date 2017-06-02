@@ -73,6 +73,7 @@ extern NSString* const VERSION;
 
 @property long mInstallId;
 @property bool mUpdatingLocation;
+@property bool mLocationUpdated;
 @property bool mResetFences;
 @property bool mBeaconEnabled;
 @property bool mBeaconScanning;
