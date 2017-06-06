@@ -56,7 +56,6 @@ extern int const MAX_INTERVAL;
 extern int const BEACON_SCAN_INTERVAL;
 extern int const BEACON_SCAN_PERIOD;
 extern int const BEACON_SCAN_RADIUS;
-extern int const BEACON_RADIUS;
 extern float const INITIAL_SPEED;
 extern float const MIN_SPEED;
 extern float const SPEED_EPSILON;
@@ -74,6 +73,7 @@ extern NSString* const VERSION;
 
 @property long mInstallId;
 @property bool mUpdatingLocation;
+@property bool mLocationUpdated;
 @property bool mResetFences;
 @property bool mBeaconEnabled;
 @property bool mBeaconScanning;
@@ -87,6 +87,7 @@ extern NSString* const VERSION;
 @property NSArray *mBeacons;
 @property NSMutableArray *mCurrentBeacons;
 @property NSTimer *mDwellTimer;
+@property dispatch_source_t mDispatchTimer;
 
 -(id)initWithAppKey:(NSString*)appKey;
 -(void)setUUID:(NSString*)uuid;
@@ -105,9 +106,11 @@ extern NSString* const VERSION;
 -(void)calculateIntervalAndAccuracy;
 -(double)calculateDistanceFrom:(NSString *)location1 To:(NSString *)location2;
 -(void)confirmEventFor:(long)eid withType:(NSString *)etype;
+-(void)confirmEventFor:(long)eid withType:(NSString *)etype withProximity:(NSString *)proximity;
 -(int)getTimeBeforeDwell;
 -(void)startDwellTimer;
 -(void)stopDwellTimer;
 -(void)updateDwellTimes:(NSTimer *)timer;
 -(bool)checkSilenceTime;
+-(bool)proximityLessOrEquals:(NSString*)proximity1 to:(NSString*)proximity2;
 @end
