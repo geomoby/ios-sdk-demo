@@ -107,7 +107,7 @@
                                                            delegate: nil
                                                   cancelButtonTitle: @"Ok"
                                                   otherButtonTitles: nil, nil];
-            [alert show];
+            //[alert show];
         }
     });
 }
@@ -135,7 +135,7 @@
                                                            delegate: nil
                                                   cancelButtonTitle: @"Ok"
                                                   otherButtonTitles: nil, nil];
-            [alert show];
+            //[alert show];
         }
     });
 }
@@ -163,7 +163,7 @@
                                                            delegate: nil
                                                   cancelButtonTitle: @"Ok"
                                                   otherButtonTitles: nil, nil];
-            [alert show];
+            //[alert show];
         }
     });
 }
