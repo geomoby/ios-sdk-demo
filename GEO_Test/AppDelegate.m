@@ -107,7 +107,7 @@
                                                            delegate: nil
                                                   cancelButtonTitle: @"Ok"
                                                   otherButtonTitles: nil, nil];
-            [alert show];
+            //[alert show];
         }
     });
 }
@@ -135,7 +135,7 @@
                                                            delegate: nil
                                                   cancelButtonTitle: @"Ok"
                                                   otherButtonTitles: nil, nil];
-            [alert show];
+            //[alert show];
         }
     });
 }
@@ -163,7 +163,7 @@
                                                            delegate: nil
                                                   cancelButtonTitle: @"Ok"
                                                   otherButtonTitles: nil, nil];
-            [alert show];
+            //[alert show];
         }
     });
 }
@@ -249,7 +249,10 @@
         if (flag)status = @"in";
         
         ViewController *controller = (ViewController*)self.window.rootViewController;
-        controller.distanceLabel.text = [NSString stringWithFormat:@"%.02fm (%@)", distance, status];
+        if (distance < DBL_MAX / 2.0)
+            controller.distanceLabel.text = [NSString stringWithFormat:@"%.02fm (%@)", distance, status];
+        else
+            controller.distanceLabel.text = [NSString stringWithFormat:@"N/Am (%@)", status];
     });
 }
 
