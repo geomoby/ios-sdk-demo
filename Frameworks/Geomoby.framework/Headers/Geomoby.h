@@ -77,6 +77,7 @@ extern NSString* const VERSION;
 @property bool mLocationUpdated;
 @property bool mBeaconEnabled;
 @property bool mBeaconScanning;
+@property bool mBeaconFirstScan;
 @property double mMinDist;
 @property float mAverageSpeed;
 @property float mSpeed;
