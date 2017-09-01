@@ -98,7 +98,7 @@
             notification.alertBody = [NSString stringWithFormat:@"Entered location - %@", name];
             notification.alertAction = @"Ok";
             notification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+            //[[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
         else
         {
@@ -126,7 +126,7 @@
             notification.alertBody = [NSString stringWithFormat:@"Exited location - %@", name];
             notification.alertAction = @"Ok";
             notification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+            //[[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
         else
         {
@@ -154,7 +154,7 @@
             notification.alertBody = [NSString stringWithFormat:@"Dwelled in location - %@", name];
             notification.alertAction = @"Ok";
             notification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+            //[[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
         else
         {
