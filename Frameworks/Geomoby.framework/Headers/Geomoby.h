@@ -64,7 +64,6 @@ extern int const MIN_ACCURACY;
 extern NSString* const VERSION;
 
 @property NSString *mAppKey;
-@property bool mDevMode;
 @property NSString *mUUID;
 @property NSDictionary *mTags;
 @property int mSilenceStart;
@@ -108,10 +107,12 @@ extern NSString* const VERSION;
 -(double)calculateDistanceFrom:(NSString *)location1 To:(NSString *)location2;
 -(void)confirmEventFor:(long)eid withType:(NSString *)etype;
 -(void)confirmEventFor:(long)eid withType:(NSString *)etype withProximity:(NSString *)proximity;
+-(void)confirmEventType:(id)fence withType:(NSString *)etype;
 -(int)getTimeBeforeDwell;
+-(int)getTimeBeforeCooldownPass;
 -(void)startDwellTimer;
 -(void)stopDwellTimer;
--(void)updateDwellTimes:(NSTimer *)timer;
+-(void)updateFenceEvents:(NSTimer *)timer;
 -(bool)checkSilenceTime;
 -(bool)proximityLessOrEquals:(NSString*)proximity1 to:(NSString*)proximity2;
 @end
