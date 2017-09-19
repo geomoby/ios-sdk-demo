@@ -17,6 +17,7 @@
 		8470B7CD1E7D17FC005F173A /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8470B7CA1E7D17F7005F173A /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		847F89E71E66797C00CEA204 /* geos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847F89E51E66797800CEA204 /* geos.framework */; };
 		847F89E81E66797C00CEA204 /* geos.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 847F89E51E66797800CEA204 /* geos.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84B04C341F70C763008DB3EF /* GeolocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B04C331F70C763008DB3EF /* GeolocationManager.m */; };
 		84F4E8921E43171C0027A2F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4E8911E43171C0027A2F2 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,8 @@
 		844FA7F41E3F3C7300335D9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8470B7CA1E7D17F7005F173A /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Geomoby.framework; path = Frameworks/Geomoby.framework; sourceTree = "<group>"; };
 		847F89E51E66797800CEA204 /* geos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = geos.framework; path = Frameworks/geos.framework; sourceTree = "<group>"; };
+		84B04C321F70C763008DB3EF /* GeolocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeolocationManager.h; sourceTree = "<group>"; };
+		84B04C331F70C763008DB3EF /* GeolocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeolocationManager.m; sourceTree = "<group>"; };
 		84F4E8911E43171C0027A2F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -89,6 +92,8 @@
 				844FA7E71E3F3C7300335D9A /* AppDelegate.m */,
 				844FA7E91E3F3C7300335D9A /* ViewController.h */,
 				844FA7EA1E3F3C7300335D9A /* ViewController.m */,
+				84B04C321F70C763008DB3EF /* GeolocationManager.h */,
+				84B04C331F70C763008DB3EF /* GeolocationManager.m */,
 				844FA7EC1E3F3C7300335D9A /* Main.storyboard */,
 				844FA7EF1E3F3C7300335D9A /* Assets.xcassets */,
 				844FA7F11E3F3C7300335D9A /* LaunchScreen.storyboard */,
@@ -195,6 +200,7 @@
 			files = (
 				844FA7EB1E3F3C7300335D9A /* ViewController.m in Sources */,
 				844FA7E81E3F3C7300335D9A /* AppDelegate.m in Sources */,
+				84B04C341F70C763008DB3EF /* GeolocationManager.m in Sources */,
 				844FA7E51E3F3C7300335D9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

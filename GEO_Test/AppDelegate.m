@@ -43,15 +43,11 @@
                            @"membership" : @"gold"
                            };
     
-    _mGeomoby = [[Geomoby alloc] initWithAppKey:@"XXXXXXXX"];
-    [_mGeomoby setDevMode:true];
-    [_mGeomoby setUUID:@"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"];
-    [_mGeomoby setSilenceWindowStart:23 andStop:5];
-    [_mGeomoby setTags:tags];
-    [_mGeomoby setDelegate:self];
+    // First usage of class should be createInstance
+    [GeolocationManager createInstanceWithTags:tags andDelegate:self];
     
     // Geomoby start
-    [_mGeomoby start];
+    [[GeolocationManager sharedInstance] start];
     return YES;
 }
 
@@ -81,7 +77,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Geomoby stop
-    [_mGeomoby stop];
+    [[GeolocationManager sharedInstance] stop];
 }
 
 
@@ -160,6 +156,34 @@
         {
 	        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
                                                             message: [NSString stringWithFormat:@"Dwelled in location - %@", name]
+                                                           delegate: nil
+                                                  cancelButtonTitle: @"Ok"
+                                                  otherButtonTitles: nil, nil];
+            //[alert show];
+        }
+    });
+}
+
+
+
+
+// Cross event callback
+-(void)eventCrossCallback:(NSString *)name
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0f];
+            notification.alertBody = [NSString stringWithFormat:@"Crossed location - %@", name];
+            notification.alertAction = @"Ok";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            //[[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Event triggered!"
+                                                            message: [NSString stringWithFormat:@"Crossed location - %@", name]
                                                            delegate: nil
                                                   cancelButtonTitle: @"Ok"
                                                   otherButtonTitles: nil, nil];

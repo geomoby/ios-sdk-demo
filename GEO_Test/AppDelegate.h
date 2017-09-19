@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Geomoby/Geomoby.h>
+#import "GeolocationManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GeomobyDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) Geomoby *mGeomoby;
 @property bool mFirstSend;
 @property int mTimeFromLastReport;
 
