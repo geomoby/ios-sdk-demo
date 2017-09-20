@@ -93,6 +93,8 @@ extern NSString* const VERSION;
 @property NSTimer *mDwellTimer;
 @property dispatch_source_t mDispatchTimer;
 
++(Geomoby *)sharedInstance;
+
 -(id)initWithAppKey:(NSString*)appKey;
 -(void)setUUID:(NSString*)uuid;
 -(void)setDevMode:(bool)devmode;

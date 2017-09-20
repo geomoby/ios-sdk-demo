@@ -44,10 +44,15 @@
                            };
     
     // First usage of class should be createInstance
-    [GeolocationManager createInstanceWithTags:tags andDelegate:self];
+    [[Geomoby alloc] initWithAppKey:@"ATPRBM2R"];
+    [[Geomoby sharedInstance]  setDevMode:true];
+    [[Geomoby sharedInstance]  setUUID:@"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"];
+    [[Geomoby sharedInstance]  setSilenceWindowStart:23 andStop:5];
+    [[Geomoby sharedInstance]  setTags:tags];
+    [[Geomoby sharedInstance]  setDelegate:self];
     
     // Geomoby start
-    [[GeolocationManager sharedInstance] start];
+    [[Geomoby sharedInstance] start];
     return YES;
 }
 
@@ -77,7 +82,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Geomoby stop
-    [[GeolocationManager sharedInstance] stop];
+    [[Geomoby sharedInstance] stop];
 }
 
 

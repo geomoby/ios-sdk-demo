@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "GeolocationManager.h"
+#import <Geomoby/Geomoby.h>
 
 @interface ViewController : UIViewController <MKMapViewDelegate, UIAlertViewDelegate>
 

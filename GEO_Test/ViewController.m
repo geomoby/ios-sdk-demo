@@ -95,7 +95,7 @@ enum TAGS {
                                        @"age" : @"25",
                                        @"membership" : @"gold"
                                        };
-                [[GeolocationManager sharedInstance] setTags:tags];
+                [[Geomoby sharedInstance] setTags:tags];
                 break;
             }
                 
@@ -106,7 +106,7 @@ enum TAGS {
                                        @"age" : @"27",
                                        @"membership" : @"silver"
                                        };
-                [[GeolocationManager sharedInstance] setTags:tags];
+                [[Geomoby sharedInstance] setTags:tags];
                 break;
             }
 
@@ -117,7 +117,7 @@ enum TAGS {
                                        @"age" : @"22",
                                        @"membership" : @"bronze"
                                        };
-                [[GeolocationManager sharedInstance] setTags:tags];
+                [[Geomoby sharedInstance] setTags:tags];
                 break;
             }
         }

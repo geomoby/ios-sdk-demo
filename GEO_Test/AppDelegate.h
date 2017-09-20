@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GeolocationManager.h"
+#import <Geomoby/Geomoby.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GeomobyDelegate>
 
