@@ -27,8 +27,14 @@
 	// Notifications permission
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
     {
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge categories:nil]];
     }
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    
+    
+    // Firebase init
+    [FIRApp configure];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTokenRefresh) name:kFIRInstanceIDTokenRefreshNotification object:nil];
 
 
     // Last report timer
@@ -83,6 +89,51 @@
 {
     // Geomoby stop
     [[Geomoby sharedInstance] stop];
+}
+
+
+
+
+// Registered notification
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    NSLog(@"Registered");
+    [self subscribeToTopic];
+}
+
+
+
+
+// Recieve remote notifications
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NSLog(@"Get remote - %@", userInfo);
+    if (userInfo[@"MessageType"] && [userInfo[@"MessageType"] isEqualToString:@"GeomobySyncRequest"])
+    {
+        [[Geomoby sharedInstance] updateFences];
+    }
+}
+
+
+
+
+// Subscribe to topic
+- (void)subscribeToTopic
+{
+    NSLog(@"Subscribing...");
+    [FIRMessaging messaging].shouldEstablishDirectChannel = YES;
+    [[FIRMessaging messaging] subscribeToTopic:@"/topics/GeomobySync"];
+}
+
+
+
+
+// Token refresh
+- (void)onTokenRefresh
+{
+    NSString *token = [[FIRInstanceID instanceID] token];
+    [[Geomoby sharedInstance] updateInstanceId:token];
+    [self subscribeToTopic];
 }
 
 

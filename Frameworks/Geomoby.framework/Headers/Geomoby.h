@@ -82,6 +82,7 @@ extern NSString* const VERSION;
 @property float mAverageSpeed;
 @property float mSpeed;
 @property bool mLineCrossed;
+@property bool mFenceUpdate;
 @property int mInterval;
 @property CLBeaconRegion *mBeaconRegion;
 @property CLLocation *mInitLocation;
@@ -95,15 +96,19 @@ extern NSString* const VERSION;
 
 +(Geomoby *)sharedInstance;
 
--(id)initWithAppKey:(NSString*)appKey;
--(void)setUUID:(NSString*)uuid;
+-(id)initWithAppKey:(NSString *)appKey;
+-(void)setUUID:(NSString *)uuid;
 -(void)setDevMode:(bool)devmode;
--(void)setTags:(NSDictionary*)tags;
+-(void)setTags:(NSDictionary *)tags;
 -(void)setSilenceWindowStart:(int)start andStop: (int)stop;
 -(void)setDelegate:(id<GeomobyDelegate>)delegate;
 
 -(void)start;
 -(void)stop;
+-(void)updateInstanceId:(NSString *)token;
+-(void)updateFences;
+
+-(void)installDevice;
 -(void)getInstallID;
 -(void)getFences;
 -(void)sendObservation;

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840668311F84D53B0085389A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840668301F84D53B0085389A /* GoogleService-Info.plist */; };
+		840668341F84D7050085389A /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840668321F84D7050085389A /* FirebaseCore.framework */; };
+		840668351F84D7050085389A /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840668331F84D7050085389A /* FirebaseMessaging.framework */; };
+		840668371F84D9950085389A /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840668361F84D9950085389A /* FirebaseInstanceID.framework */; };
 		844FA7E51E3F3C7300335D9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FA7E41E3F3C7300335D9A /* main.m */; };
 		844FA7E81E3F3C7300335D9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FA7E71E3F3C7300335D9A /* AppDelegate.m */; };
 		844FA7EB1E3F3C7300335D9A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FA7EA1E3F3C7300335D9A /* ViewController.m */; };
@@ -17,6 +21,12 @@
 		8470B7CD1E7D17FC005F173A /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8470B7CA1E7D17F7005F173A /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		847F89E71E66797C00CEA204 /* geos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847F89E51E66797800CEA204 /* geos.framework */; };
 		847F89E81E66797C00CEA204 /* geos.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 847F89E51E66797800CEA204 /* geos.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84D9BB971F8794BE0087EB3D /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D9BB961F8794BE0087EB3D /* FirebaseAnalytics.framework */; };
+		84D9BB9D1F8795100087EB3D /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D9BB981F8795100087EB3D /* FirebaseCoreDiagnostics.framework */; };
+		84D9BB9E1F8795100087EB3D /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D9BB991F8795100087EB3D /* FirebaseNanoPB.framework */; };
+		84D9BB9F1F8795100087EB3D /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D9BB9A1F8795100087EB3D /* GoogleToolboxForMac.framework */; };
+		84D9BBA01F8795100087EB3D /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D9BB9B1F8795100087EB3D /* nanopb.framework */; };
+		84D9BBA11F8795100087EB3D /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D9BB9C1F8795100087EB3D /* Protobuf.framework */; };
 		84F4E8921E43171C0027A2F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4E8911E43171C0027A2F2 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +46,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		840668301F84D53B0085389A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		840668321F84D7050085389A /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
+		840668331F84D7050085389A /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = Frameworks/FirebaseMessaging.framework; sourceTree = "<group>"; };
+		840668361F84D9950085389A /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		844FA7E01E3F3C7300335D9A /* GEO_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GEO_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844FA7E41E3F3C7300335D9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		844FA7E61E3F3C7300335D9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -48,6 +62,13 @@
 		844FA7F41E3F3C7300335D9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8470B7CA1E7D17F7005F173A /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Geomoby.framework; path = Frameworks/Geomoby.framework; sourceTree = "<group>"; };
 		847F89E51E66797800CEA204 /* geos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = geos.framework; path = Frameworks/geos.framework; sourceTree = "<group>"; };
+		84D9BB951F8793EF0087EB3D /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		84D9BB961F8794BE0087EB3D /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		84D9BB981F8795100087EB3D /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Frameworks/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		84D9BB991F8795100087EB3D /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseNanoPB.framework; path = Frameworks/FirebaseNanoPB.framework; sourceTree = "<group>"; };
+		84D9BB9A1F8795100087EB3D /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = Frameworks/GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		84D9BB9B1F8795100087EB3D /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = Frameworks/nanopb.framework; sourceTree = "<group>"; };
+		84D9BB9C1F8795100087EB3D /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = Frameworks/Protobuf.framework; sourceTree = "<group>"; };
 		84F4E8911E43171C0027A2F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -56,6 +77,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D9BB9D1F8795100087EB3D /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				84D9BB9E1F8795100087EB3D /* FirebaseNanoPB.framework in Frameworks */,
+				84D9BB9F1F8795100087EB3D /* GoogleToolboxForMac.framework in Frameworks */,
+				84D9BBA01F8795100087EB3D /* nanopb.framework in Frameworks */,
+				84D9BBA11F8795100087EB3D /* Protobuf.framework in Frameworks */,
+				84D9BB971F8794BE0087EB3D /* FirebaseAnalytics.framework in Frameworks */,
+				840668371F84D9950085389A /* FirebaseInstanceID.framework in Frameworks */,
+				840668341F84D7050085389A /* FirebaseCore.framework in Frameworks */,
+				840668351F84D7050085389A /* FirebaseMessaging.framework in Frameworks */,
 				847F89E71E66797C00CEA204 /* geos.framework in Frameworks */,
 				84F4E8921E43171C0027A2F2 /* MapKit.framework in Frameworks */,
 				8470B7CC1E7D17FC005F173A /* Geomoby.framework in Frameworks */,
@@ -85,6 +115,8 @@
 		844FA7E21E3F3C7300335D9A /* GEO_Test */ = {
 			isa = PBXGroup;
 			children = (
+				84D9BB951F8793EF0087EB3D /* Firebase.h */,
+				840668301F84D53B0085389A /* GoogleService-Info.plist */,
 				844FA7E61E3F3C7300335D9A /* AppDelegate.h */,
 				844FA7E71E3F3C7300335D9A /* AppDelegate.m */,
 				844FA7E91E3F3C7300335D9A /* ViewController.h */,
@@ -109,6 +141,15 @@
 		847F89D61E66708100CEA204 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84D9BB981F8795100087EB3D /* FirebaseCoreDiagnostics.framework */,
+				84D9BB991F8795100087EB3D /* FirebaseNanoPB.framework */,
+				84D9BB9A1F8795100087EB3D /* GoogleToolboxForMac.framework */,
+				84D9BB9B1F8795100087EB3D /* nanopb.framework */,
+				84D9BB9C1F8795100087EB3D /* Protobuf.framework */,
+				84D9BB961F8794BE0087EB3D /* FirebaseAnalytics.framework */,
+				840668361F84D9950085389A /* FirebaseInstanceID.framework */,
+				840668321F84D7050085389A /* FirebaseCore.framework */,
+				840668331F84D7050085389A /* FirebaseMessaging.framework */,
 				8470B7CA1E7D17F7005F173A /* Geomoby.framework */,
 				847F89E51E66797800CEA204 /* geos.framework */,
 				84F4E8911E43171C0027A2F2 /* MapKit.framework */,
@@ -181,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844FA7F31E3F3C7300335D9A /* LaunchScreen.storyboard in Resources */,
+				840668311F84D53B0085389A /* GoogleService-Info.plist in Resources */,
 				844FA7F01E3F3C7300335D9A /* Assets.xcassets in Resources */,
 				844FA7EE1E3F3C7300335D9A /* Main.storyboard in Resources */,
 			);
@@ -261,6 +303,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -299,6 +342,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -320,6 +364,7 @@
 				);
 				INFOPLIST_FILE = GEO_Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geomoby.GEO-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -341,6 +386,7 @@
 				);
 				INFOPLIST_FILE = GEO_Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geomoby.GEO-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

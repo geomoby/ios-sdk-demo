@@ -6,6 +6,7 @@
 //  Copyright © 2017 admin. All rights reserved.
 //
 
+#import "Firebase.h"
 #import <UIKit/UIKit.h>
 #import <Geomoby/Geomoby.h>
 
