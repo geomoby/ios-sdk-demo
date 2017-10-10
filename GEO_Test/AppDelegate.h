@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <Geomoby/Geomoby.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, GeomobyDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, GeomobyDelegate, FIRMessagingDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property bool mFirstSend;

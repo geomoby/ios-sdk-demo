@@ -25,10 +25,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Notifications permission
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
-    {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge categories:nil]];
-    }
+    UIUserNotificationType allNotificationTypes = (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max)
+            [FIRMessaging messaging].delegate = self;
+    
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     
     
@@ -105,13 +108,31 @@
 
 
 // Recieve remote notifications
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"didReceiveRemoteNotification");
+    [self onMessageReceived:userInfo];
+}
+
+
+
+
+// Recieve remote notifications
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler
 {
-    NSLog(@"Get remote - %@", userInfo);
-    if (userInfo[@"MessageType"] && [userInfo[@"MessageType"] isEqualToString:@"GeomobySyncRequest"])
-    {
-        [[Geomoby sharedInstance] updateFences];
-    }
+    NSLog(@"didReceiveRemoteNotification fetchCompletionHandler");
+    [self onMessageReceived:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+
+
+
+// Receive remote data
+- (void)messaging:(FIRMessaging *)messaging didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage
+{
+    NSLog(@"didReceiveMessage");
+    [self onMessageReceived:[remoteMessage appData]];
 }
 
 
@@ -134,6 +155,19 @@
     NSString *token = [[FIRInstanceID instanceID] token];
     [[Geomoby sharedInstance] updateInstanceId:token];
     [self subscribeToTopic];
+}
+
+
+
+
+// Receive message
+- (void)onMessageReceived:(NSDictionary *)data
+{
+    NSLog(@"Message received - %@", data);
+    if (data[@"MessageType"] && [data[@"MessageType"] isEqualToString:@"GeomobySyncRequest"])
+    {
+        [[Geomoby sharedInstance] updateFences];
+    }
 }
 
 
