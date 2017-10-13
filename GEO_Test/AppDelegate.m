@@ -30,14 +30,15 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max)
-            [FIRMessaging messaging].delegate = self;
+        [FIRMessaging messaging].delegate = self;
+    else
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTokenRefresh) name:kFIRInstanceIDTokenRefreshNotification object:nil];
     
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     
     
     // Firebase init
     [FIRApp configure];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTokenRefresh) name:kFIRInstanceIDTokenRefreshNotification object:nil];
 
 
     // Last report timer
@@ -123,6 +124,15 @@
     NSLog(@"didReceiveRemoteNotification fetchCompletionHandler");
     [self onMessageReceived:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
+}
+
+
+
+
+// Receive token
+- (void)messaging:(nonnull FIRMessaging *)messaging didRefreshRegistrationToken:(nonnull NSString *)fcmToken
+{
+    [self onTokenRefresh];
 }
 
 
