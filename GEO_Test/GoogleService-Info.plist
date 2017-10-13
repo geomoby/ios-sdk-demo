@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>149064960754-h9f1qtattmgluteslfeglgdusr246f34.apps.googleusercontent.com</string>
+	<string>149064960754-mplot1lvn1irast2gurobpdpig0j36dh.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.149064960754-h9f1qtattmgluteslfeglgdusr246f34</string>
+	<string>com.googleusercontent.apps.149064960754-mplot1lvn1irast2gurobpdpig0j36dh</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBUQQPhbmxniky5VO0GSyeAFJR-fA_Aovg</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.geomoby.GEO-Test</string>
+	<string>com.geomoby.geotest</string>
 	<key>PROJECT_ID</key>
 	<string>geo-test-8ed3a</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:149064960754:ios:b544b629633b8e22</string>
+	<string>1:149064960754:ios:fb24601002b0e9b5</string>
 	<key>DATABASE_URL</key>
 	<string>https://geo-test-8ed3a.firebaseio.com</string>
 </dict>

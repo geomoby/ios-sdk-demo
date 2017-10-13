@@ -89,11 +89,7 @@
 
 
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Geomoby stop
-    [[Geomoby sharedInstance] stop];
-}
+- (void)applicationWillTerminate:(UIApplication *)application {}
 
 
 
@@ -103,6 +99,15 @@
 {
     NSLog(@"Registered");
     [self subscribeToTopic];
+}
+
+
+
+
+// Set APNS Token
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [[FIRMessaging messaging] setAPNSToken:deviceToken type:FIRMessagingAPNSTokenTypeSandbox];
 }
 
 
