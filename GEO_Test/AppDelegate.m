@@ -24,22 +24,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	// Notifications permission
-    UIUserNotificationType allNotificationTypes = (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    
-    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max)
-        [FIRMessaging messaging].delegate = self;
-    else
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTokenRefresh) name:kFIRInstanceIDTokenRefreshNotification object:nil];
-    
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
-    
-    
-    // Firebase init
     [FIRApp configure];
-
+    [FIRMessaging messaging].delegate = self;
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_9_x_Max) {
+        UIUserNotificationType allNotificationTypes =
+        (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+        UIUserNotificationSettings *settings =
+        [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    } else {
+        // iOS 10 or later
+        #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+        // For iOS 10 display notification (sent via APNS)
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        UNAuthorizationOptions authOptions =
+        UNAuthorizationOptionAlert
+        | UNAuthorizationOptionSound
+        | UNAuthorizationOptionBadge;
+        [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        }];
+        #endif
+    }
+        
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
 
     // Last report timer
     _mFirstSend = false;
@@ -107,7 +115,7 @@
 // Set APNS Token
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    [[FIRMessaging messaging] setAPNSToken:deviceToken type:FIRMessagingAPNSTokenTypeSandbox];
+    //[[FIRMessaging messaging] setAPNSToken:deviceToken type:FIRMessagingAPNSTokenTypeSandbox];
 }
 
 
@@ -134,6 +142,13 @@
 
 
 
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
+{
+    NSLog(@"didReceiveNotificationResponse");
+}
+
+
+
 // Receive token
 - (void)messaging:(nonnull FIRMessaging *)messaging didRefreshRegistrationToken:(nonnull NSString *)fcmToken
 {
@@ -157,7 +172,6 @@
 - (void)subscribeToTopic
 {
     NSLog(@"Subscribing...");
-    [FIRMessaging messaging].shouldEstablishDirectChannel = YES;
     [[FIRMessaging messaging] subscribeToTopic:@"/topics/GeomobySync"];
 }
 
