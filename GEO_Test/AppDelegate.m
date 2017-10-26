@@ -59,7 +59,6 @@
         UIUserNotificationSettings *settings =
         [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
     else
     {
@@ -71,11 +70,10 @@
         UNAuthorizationOptionAlert
         | UNAuthorizationOptionSound
         | UNAuthorizationOptionBadge;
-        [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
-            [[UIApplication sharedApplication] registerForRemoteNotifications];
-        }];
+        [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
         #endif
     }
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
     
     return YES;
 }
