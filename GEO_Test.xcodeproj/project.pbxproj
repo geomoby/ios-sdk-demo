@@ -375,7 +375,7 @@
 				INFOPLIST_FILE = GEO_Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.geomoby.testapplication;
+				PRODUCT_BUNDLE_IDENTIFIER = P3J7HDD4K6.com.geomoby.geotest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -398,7 +398,7 @@
 				INFOPLIST_FILE = GEO_Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.geomoby.testapplication;
+				PRODUCT_BUNDLE_IDENTIFIER = P3J7HDD4K6.com.geomoby.geotest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
