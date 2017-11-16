@@ -22,8 +22,6 @@ enum TAGS {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _mapview.delegate = self;
-    _mapview.showsUserLocation = YES;
     
     _lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
     _lpgr.minimumPressDuration = 1.0f;
@@ -37,27 +35,6 @@ enum TAGS {
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-
-
-
-- (IBAction)setMap:(id)sender {
-    switch (((UISegmentedControl *)sender).selectedSegmentIndex){
-        case 0:
-            _mapview.mapType = MKMapTypeStandard;
-            break;
-            
-        case 1:
-            _mapview.mapType = MKMapTypeSatellite;
-            break;
-            
-        case 2:
-            _mapview.mapType = MKMapTypeHybrid;
-            
-        default:
-            break;
-    }
 }
 
 

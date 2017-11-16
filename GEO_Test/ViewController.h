@@ -12,7 +12,6 @@
 
 @interface ViewController : UIViewController <MKMapViewDelegate, UIAlertViewDelegate>
 
-@property (strong, nonatomic) IBOutlet MKMapView *mapview;
 @property (strong, nonatomic) IBOutlet UILabel *intervalLabel;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *speedLabel;
@@ -21,8 +20,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *scanLabel;
 @property (strong, nonatomic) IBOutlet UILabel *reportLabel;
 @property (strong, nonatomic) UILongPressGestureRecognizer *lpgr;
-
--(IBAction)setMap:(id)sender;
 
 @end
 
