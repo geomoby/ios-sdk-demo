@@ -439,7 +439,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         ViewController *controller = (ViewController*)self.window.rootViewController;
-        controller.speedLabel.text = [NSString stringWithFormat:@"%.02fm", speed];
+        controller.speedLabel.text = [NSString stringWithFormat:@"%.02fm/s", speed];
     });
 }
 
@@ -448,7 +448,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         ViewController *controller = (ViewController*)self.window.rootViewController;
-        controller.avgSpeedLabel.text = [NSString stringWithFormat:@"%.02fm", avgspeed];
+        controller.avgSpeedLabel.text = [NSString stringWithFormat:@"%.02fm/s", avgspeed];
     });
 }
 
