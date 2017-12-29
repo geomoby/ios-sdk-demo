@@ -6,7 +6,6 @@
 //  Copyright © 2017 admin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "GeomobyActionBasic.h"
@@ -52,6 +51,7 @@ extern NSString* const URL;
 extern int const GEO_RADIUS;
 extern int const OUT_ZONE_RADIUS;
 extern int const RETRY_INTERVALS[3];
+extern int const HIGH_ACCURACY_ATTEMPTS_NUM;
 extern int const MIN_INTERVAL;
 extern int const MAX_INTERVAL;
 extern int const BEACON_SCAN_INTERVAL;
@@ -61,7 +61,12 @@ extern float const INITIAL_SPEED;
 extern float const MIN_SPEED;
 extern float const SPEED_EPSILON;
 extern double const EARTH_RADIUS;
+extern int const REGION_BUFFER_DISTANCE;
+extern int const NEAR_BORDER_DISTANCE;
+extern int const GPS_ACCURACY_OUTDOOR;
 extern int const MIN_ACCURACY;
+extern double const D2R;
+extern double const DEGREE_AT_EQUATOR;
 extern NSString* const VERSION;
 
 @property NSString *mAppKey;
@@ -73,11 +78,13 @@ extern NSString* const VERSION;
 @property (nonatomic, weak) id <GeomobyDelegate> mDelegate;
 
 @property long mInstallId;
+@property bool mWaitingSignigicantLocation;
 @property bool mUpdatingLocation;
 @property bool mLocationUpdated;
 @property bool mBeaconEnabled;
 @property bool mBeaconScanning;
 @property bool mBeaconFirstScan;
+@property int mHighAccuracyAttempts;
 @property double mMinDist;
 @property float mAverageSpeed;
 @property float mSpeed;
@@ -85,6 +92,7 @@ extern NSString* const VERSION;
 @property bool mFenceUpdate;
 @property int mInterval;
 @property int mAttempt;
+@property CLLocationAccuracy mAccuracy;
 @property CLBeaconRegion *mBeaconRegion;
 @property CLLocation *mInitLocation;
 @property CLLocation *mCurrentLocation;
@@ -92,8 +100,10 @@ extern NSString* const VERSION;
 @property NSMutableArray *mFences;
 @property NSMutableArray *mBeacons;
 @property NSMutableArray *mCurrentBeacons;
-@property NSTimer *mDwellTimer;
 @property dispatch_source_t mDispatchTimer;
+@property CFTimeInterval mLastTime;
+@property bool mCheckingRegions;
+@property NSTimer *mTimer;
 
 +(Geomoby *)sharedInstance;
 
@@ -123,9 +133,6 @@ extern NSString* const VERSION;
 -(void)confirmEventType:(id)fence withType:(NSString *)etype;
 -(int)getTimeBeforeDwell;
 -(int)getTimeBeforeCooldownPass;
--(void)startDwellTimer;
--(void)stopDwellTimer;
--(void)updateFenceEvents:(NSTimer *)timer;
 -(bool)checkSilenceTime;
 -(bool)proximityLessOrEquals:(NSString*)proximity1 to:(NSString*)proximity2;
 -(int)getAttemptRetryInterval;
