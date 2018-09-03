@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>801898986295-3jskndhcugv2t0ideq8mg4bo4g6nuph6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.801898986295-3jskndhcugv2t0ideq8mg4bo4g6nuph6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCr3k3oT-XSr1OXEeTh4FkuoL9S485io0c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>801898986295</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.geomoby.demoapp</string>
+	<key>PROJECT_ID</key>
+	<string>geomoby-demo-apps</string>
+	<key>STORAGE_BUCKET</key>
+	<string>geomoby-demo-apps.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:801898986295:ios:5c20d5b8bfe99165</string>
+	<key>DATABASE_URL</key>
+	<string>https://geomoby-demo-apps.firebaseio.com</string>
+</dict>
+</plist>

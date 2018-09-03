@@ -1,0 +1,6 @@
+framework module Geomoby {
+  umbrella header "Geomoby.h"
+
+  export *
+  module * { export * }
+}
