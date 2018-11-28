@@ -300,7 +300,7 @@
                 [m_eventNotificator setBackFon:EventBackFonGreen];
                 m_eventNotificator.mainImage.image = [UIImage imageNamed:@"EventHand"];
                 m_eventNotificator.textLable.numberOfLines = 2;
-                m_eventNotificator.textLable.text = @"Good Buy and see\nyou again soon";
+                m_eventNotificator.textLable.text = @"Good Bye and see\nyou again soon";
                 break;
             case 3:
                 [m_eventNotificator setBackFon:EventBackFonPurple];
