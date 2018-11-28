@@ -49,10 +49,51 @@ static NSString *const kAPIKey = @"ZR4OWDRF";
             [[Geomoby sharedInstance]  setSilenceWindowStart:23 andStop:5];
             [[Geomoby sharedInstance]  setDelegate:self];
              m_geoMobyInit = YES;
+            //[self a:3];
         }
     }
     return self;
 }
+
+//- (void)a:(int)buttonIndex
+//{
+//  
+//        switch (buttonIndex) {
+//            case 1:
+//            {
+//                NSDictionary *tags = @{
+//                                       @"gender" : @"female",
+//                                       @"age" : @"25",
+//                                       @"membership" : @"gold"
+//                                       };
+//                [[Geomoby sharedInstance] setTags:tags];
+//                break;
+//            }
+//                
+//            case 2:
+//            {
+//                NSDictionary *tags = @{
+//                                       @"gender" : @"male",
+//                                       @"age" : @"27",
+//                                       @"membership" : @"silver"
+//                                       };
+//                [[Geomoby sharedInstance] setTags:tags];
+//                break;
+//            }
+//                
+//            case 3:
+//            {
+//                NSDictionary *tags = @{
+//                                       @"gender" : @"female",
+//                                       @"age" : @"22",
+//                                       @"membership" : @"bronze"
+//                                       };
+//                [[Geomoby sharedInstance] setTags:tags];
+//                break;
+//            }
+//        
+//    }
+//}
 
 -(void) setTags:(NSDictionary*) _tags
 {
