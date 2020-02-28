@@ -8,6 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <CoreMotion/CoreMotion.h>
 #import "GeomobyActionBasic.h"
 #import "GeomobyActionData.h"
 #import "GeomobyFenceView.h"
@@ -44,6 +45,8 @@ FOUNDATION_EXPORT const unsigned char GeomobyVersionString[];
 -(void)updatedSpeed:(float)speed;
 -(void)updatedAvgSpeed:(float)avgspeed;
 -(void)updatedGPSAccuracy:(float)acuracy;
+
+-(void)didFinishDeferWithError:(NSError*)error;
 @end
 
 
@@ -110,7 +113,14 @@ extern NSString* const VERSION;
 @property bool mCheckingRegions;
 @property NSTimer *mTimer;
 
+@property bool useDeferLocationUpdate;
+@property CLLocationDistance deferDistance;
+@property NSTimeInterval deferTimeInterval;
+
+
 +(Geomoby *)sharedInstance;
++(BOOL)isInitialised;
++(NSString*)version;
 
 -(id)initWithAppKey:(NSString *)appKey;
 -(void)setUUID:(NSString *)uuid;
