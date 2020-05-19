@@ -47,7 +47,9 @@
     [SlideNavigationController sharedInstance].leftMenu = leftMenu;
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
 
-
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//        [[Geomoby sharedInstance] getFences];
+//    });
 //    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
 //        NSString *menu = note.userInfo[@"menu"];
 //        NSLog(@"Closed %@", menu);
@@ -106,6 +108,9 @@
      
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//        [[Geomoby sharedInstance] getFences];
+//    });
 }
 
 
@@ -170,7 +175,7 @@
 {
  //   NSLog(@"didReceiveRemoteNotification fetchCompletionHandler");
     [self onMessageReceived:userInfo];
-    completionHandler(UIBackgroundFetchResultNewData);
+//    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 

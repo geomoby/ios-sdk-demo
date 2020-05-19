@@ -20,13 +20,10 @@
 		759A6A08211959C400669694 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A69FD211959C300669694 /* FirebaseCoreDiagnostics.framework */; };
 		759A6A09211959C400669694 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A69FE211959C400669694 /* FirebaseAnalytics.framework */; };
 		759A6A0A211959C400669694 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A69FF211959C400669694 /* FirebaseCore.framework */; };
-		759A6A0B211959C400669694 /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A6A00211959C400669694 /* Geomoby.framework */; };
 		759A6A0C211959C400669694 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A6A01211959C400669694 /* nanopb.framework */; };
 		759A6A0D211959C400669694 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A6A02211959C400669694 /* Protobuf.framework */; };
 		759A6A0E211959C400669694 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A6A03211959C400669694 /* FirebaseInstanceID.framework */; };
 		759A6A0F211959C400669694 /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A6A04211959C400669694 /* FirebaseMessaging.framework */; };
-		759A6A1321195AB500669694 /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A6A00211959C400669694 /* Geomoby.framework */; };
-		759A6A1421195AB500669694 /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 759A6A00211959C400669694 /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		759A6A1921195C4000669694 /* UIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 759A6A1821195C4000669694 /* UIMainViewController.m */; };
 		759A6A1D21195D3D00669694 /* MainContract.m in Sources */ = {isa = PBXBuildFile; fileRef = 759A6A1C21195D3D00669694 /* MainContract.m */; };
 		759A6A2221195E0100669694 /* GEOMoby.m in Sources */ = {isa = PBXBuildFile; fileRef = 759A6A2121195E0100669694 /* GEOMoby.m */; };
@@ -86,16 +83,18 @@
 		75B86AC0211AC2C90026A0B6 /* UIObjectsMapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B86ABF211AC2C90026A0B6 /* UIObjectsMapKit.m */; };
 		75D43CE8211986AE006BADAD /* UILeftMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D43CE6211986AE006BADAD /* UILeftMenuTableViewCell.m */; };
 		75D43CE9211986AE006BADAD /* UILeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75D43CE7211986AE006BADAD /* UILeftMenuTableViewCell.xib */; };
+		846D57A624743036007ED1CD /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CF5DE2247349670066C405 /* Geomoby.framework */; };
+		846D57A724743036007ED1CD /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84CF5DE2247349670066C405 /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		759A6A1221195A9400669694 /* Embed Frameworks */ = {
+		846D57A824743036007ED1CD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				759A6A1421195AB500669694 /* Geomoby.framework in Embed Frameworks */,
+				846D57A724743036007ED1CD /* Geomoby.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +207,7 @@
 		75D43CE6211986AE006BADAD /* UILeftMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UILeftMenuTableViewCell.m; sourceTree = "<group>"; };
 		75D43CE7211986AE006BADAD /* UILeftMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UILeftMenuTableViewCell.xib; sourceTree = "<group>"; };
 		75E657C721AD4356006B6994 /* Untitled.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Untitled.gpx; path = GEOMoby/Untitled.gpx; sourceTree = "<group>"; };
+		84CF5DE2247349670066C405 /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Geomoby.framework; path = "../Library/Developer/Xcode/DerivedData/Geomoby-ceyxjmwsbmnjpueyzlxwnuelpzcw/Build/Products/Debug-iphoneos/Geomoby.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +230,7 @@
 				75B86AA2211A8C460026A0B6 /* CoreData.framework in Frameworks */,
 				75B86AA0211A8C360026A0B6 /* Accelerate.framework in Frameworks */,
 				75B86A9C211A8B970026A0B6 /* libc++.tbd in Frameworks */,
+				846D57A624743036007ED1CD /* Geomoby.framework in Frameworks */,
 				75B86A9A211A8B8E0026A0B6 /* libz.tbd in Frameworks */,
 				75B86A94211A8B560026A0B6 /* GoogleMaps.framework in Frameworks */,
 				75B86A95211A8B560026A0B6 /* GoogleMapsBase.framework in Frameworks */,
@@ -240,8 +241,6 @@
 				759A6A08211959C400669694 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				759A6A09211959C400669694 /* FirebaseAnalytics.framework in Frameworks */,
 				759A6A0A211959C400669694 /* FirebaseCore.framework in Frameworks */,
-				759A6A0B211959C400669694 /* Geomoby.framework in Frameworks */,
-				759A6A1321195AB500669694 /* Geomoby.framework in Frameworks */,
 				759A6A0C211959C400669694 /* nanopb.framework in Frameworks */,
 				759A6A0D211959C400669694 /* Protobuf.framework in Frameworks */,
 				759A6A0E211959C400669694 /* FirebaseInstanceID.framework in Frameworks */,
@@ -293,6 +292,7 @@
 		759A69F9211959C300669694 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84CF5DE2247349670066C405 /* Geomoby.framework */,
 				752A97C02137C5C300A61297 /* Crashlytics.framework */,
 				752A97C12137C5C300A61297 /* Fabric.framework */,
 				75B86AB5211A8D4D0026A0B6 /* SystemConfiguration.framework */,
@@ -509,8 +509,8 @@
 				759A69DC211958D200669694 /* Sources */,
 				759A69DD211958D200669694 /* Frameworks */,
 				759A69DE211958D200669694 /* Resources */,
-				759A6A1221195A9400669694 /* Embed Frameworks */,
 				75EEF5402139063E00D1A83F /* ShellScript */,
+				846D57A824743036007ED1CD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -784,6 +784,7 @@
 				CODE_SIGN_ENTITLEMENTS = "GeoMoby Demo App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = P3J7HDD4K6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -808,6 +809,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "GeoMoby Demo App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = P3J7HDD4K6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

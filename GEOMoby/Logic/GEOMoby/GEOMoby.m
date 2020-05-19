@@ -10,7 +10,7 @@
 #import "GEOMoby.h"
 
 
-static NSString *const kAPIKey = @"ZR4OWDRF";
+static NSString *const kAPIKey = @"46WKUL6S";
 
 @implementation GEOMobyModel{
     NSMutableArray *m_delegates;
