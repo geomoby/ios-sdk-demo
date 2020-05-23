@@ -46,6 +46,12 @@
     [SlideNavigationController sharedInstance].enableSwipeGesture = NO;
     [SlideNavigationController sharedInstance].leftMenu = leftMenu;
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [[Geomoby sharedInstance] getFences];
+        [[Geomoby sharedInstance] getFences];
+        [[Geomoby sharedInstance] getFences];
+    });
 
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 //        [[Geomoby sharedInstance] getFences];
@@ -108,9 +114,6 @@
      
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//        [[Geomoby sharedInstance] getFences];
-//    });
 }
 
 
@@ -174,8 +177,11 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler
 {
  //   NSLog(@"didReceiveRemoteNotification fetchCompletionHandler");
+//    https://api.geomoby.com/install/location?install=11901&lat=50.415520&long=30.546416&radius=10000
     [self onMessageReceived:userInfo];
-//    completionHandler(UIBackgroundFetchResultNewData);
+    [[Geomoby sharedInstance] setSavedCompletionHandler:^{
+       completionHandler(UIBackgroundFetchResultNewData);
+    }];
 }
 
 
@@ -245,7 +251,7 @@ API_AVAILABLE(ios(10.0)) {
     NSLog(@"Message received - %@", data);
     if (data[@"MessageType"] && [data[@"MessageType"] isEqualToString:@"GeomobySyncRequest"])
     {
-        [[Geomoby sharedInstance] updateFences];
+//        [[Geomoby sharedInstance] updateFences];
     }
 }
 
