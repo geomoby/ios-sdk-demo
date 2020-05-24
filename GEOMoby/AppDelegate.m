@@ -251,7 +251,7 @@ API_AVAILABLE(ios(10.0)) {
     NSLog(@"Message received - %@", data);
     if (data[@"MessageType"] && [data[@"MessageType"] isEqualToString:@"GeomobySyncRequest"])
     {
-//        [[Geomoby sharedInstance] updateFences];
+        [[Geomoby sharedInstance] updateFences];
     }
 }
 
