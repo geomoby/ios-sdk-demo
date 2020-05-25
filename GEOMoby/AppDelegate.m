@@ -15,6 +15,8 @@
 #import "UILeftMenuViewController.h"
 #import "NSSettingsManager.h"
 
+#import "URLSessionBackground2.h"
+
 
 @interface AppDelegate ()
 
@@ -47,11 +49,12 @@
     [SlideNavigationController sharedInstance].leftMenu = leftMenu;
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [[Geomoby sharedInstance] getFences];
-        [[Geomoby sharedInstance] getFences];
-        [[Geomoby sharedInstance] getFences];
-    });
+    NSLog(@"token %@", [[FIRInstanceID instanceID] token]);
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//        [[Geomoby sharedInstance] getFences];
+//        [[Geomoby sharedInstance] getFences];
+//        [[Geomoby sharedInstance] getFences];
+//    });
 
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 //        [[Geomoby sharedInstance] getFences];
@@ -179,9 +182,10 @@
  //   NSLog(@"didReceiveRemoteNotification fetchCompletionHandler");
 //    https://api.geomoby.com/install/location?install=11901&lat=50.415520&long=30.546416&radius=10000
     [self onMessageReceived:userInfo];
-    [[Geomoby sharedInstance] setSavedCompletionHandler:^{
-       completionHandler(UIBackgroundFetchResultNewData);
-    }];
+    completionHandler(UIBackgroundFetchResultNewData);
+//    [[URLSessionBackground2 sharedInstance] setSavedCompletionHandler:^{
+//       completionHandler(UIBackgroundFetchResultNewData);
+//    }];
 }
 
 
@@ -201,7 +205,10 @@ API_AVAILABLE(ios(10.0)) {
     completionHandler(UNNotificationPresentationOptionNone);
 }
 
-
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [self onMessageReceived:nil];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
 
 
 // Receive token
@@ -227,7 +234,7 @@ API_AVAILABLE(ios(10.0)) {
 - (void)subscribeToTopic
 {
     NSLog(@"Subscribing...");
-    [[FIRMessaging messaging] subscribeToTopic:@"/topics/GeomobySync"];
+//    [[FIRMessaging messaging] subscribeToTopic:@"/topics/GeomobySync"];
 }
 
 
@@ -251,7 +258,35 @@ API_AVAILABLE(ios(10.0)) {
     NSLog(@"Message received - %@", data);
     if (data[@"MessageType"] && [data[@"MessageType"] isEqualToString:@"GeomobySyncRequest"])
     {
-        [[Geomoby sharedInstance] updateFences];
+        [[Geomoby sharedInstance] getFences];
+//    https://api.geomoby.com/install/location?install=12389&lat=50.415497&long=30.546451&radius=10000
+   
+    
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+//    [request setHTTPMethod:@"GET"];
+//    request.timeoutInterval = 20;
+//    [request setURL:[NSURL URLWithString:@"https://api.geomoby.com/install/location?install=12389&lat=50.415497&long=30.546451&radius=10000"]];
+//
+//    NSLog(@"Request for background");
+//    [[URLSessionBackground2 sharedInstance] sendRequest:request completion:^(NSData * _Nullable responseData, NSError * _Nullable error) {
+//        if(error)
+//            NSLog(@"Error!: %@",error);
+//        else
+//            NSLog(@"No Error!");
+//
+//        NSLog(@"Response Data: %@",responseData);
+//
+//    }];
+    
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+//    [request setHTTPMethod:@"GET"];
+//    request.timeoutInterval = 20;
+//    [request setURL:[NSURL URLWithString:@"https://api.geomoby.com/install/location?install=12389&lat=50.415497&long=30.546451&radius=10000"]];
+//    NSHTTPURLResponse *response = nil;
+//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+//    NSLog(@"Request for background %@", responseData);
+    
+    
     }
 }
 

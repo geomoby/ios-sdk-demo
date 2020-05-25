@@ -83,8 +83,9 @@
 		75B86AC0211AC2C90026A0B6 /* UIObjectsMapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B86ABF211AC2C90026A0B6 /* UIObjectsMapKit.m */; };
 		75D43CE8211986AE006BADAD /* UILeftMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D43CE6211986AE006BADAD /* UILeftMenuTableViewCell.m */; };
 		75D43CE9211986AE006BADAD /* UILeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75D43CE7211986AE006BADAD /* UILeftMenuTableViewCell.xib */; };
-		8486214F2479D733006B16AB /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8486214D2479D72D006B16AB /* Geomoby.framework */; };
-		848621502479D733006B16AB /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8486214D2479D72D006B16AB /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		845932B5247C164E00E806A3 /* URLSessionBackground2.m in Sources */ = {isa = PBXBuildFile; fileRef = 845932B4247C164E00E806A3 /* URLSessionBackground2.m */; };
+		845932BC247C1FA300E806A3 /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845932BA247C1F9A00E806A3 /* Geomoby.framework */; };
+		845932BD247C1FA300E806A3 /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 845932BA247C1F9A00E806A3 /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,7 +95,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				848621502479D733006B16AB /* Geomoby.framework in Embed Frameworks */,
+				845932BD247C1FA300E806A3 /* Geomoby.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +207,9 @@
 		75D43CE6211986AE006BADAD /* UILeftMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UILeftMenuTableViewCell.m; sourceTree = "<group>"; };
 		75D43CE7211986AE006BADAD /* UILeftMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UILeftMenuTableViewCell.xib; sourceTree = "<group>"; };
 		75E657C721AD4356006B6994 /* Untitled.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Untitled.gpx; path = GEOMoby/Untitled.gpx; sourceTree = "<group>"; };
-		8486214D2479D72D006B16AB /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Geomoby.framework; sourceTree = "<group>"; };
+		845932B3247C164E00E806A3 /* URLSessionBackground2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLSessionBackground2.h; sourceTree = "<group>"; };
+		845932B4247C164E00E806A3 /* URLSessionBackground2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLSessionBackground2.m; sourceTree = "<group>"; };
+		845932BA247C1F9A00E806A3 /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Geomoby.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +232,7 @@
 				75B86AA2211A8C460026A0B6 /* CoreData.framework in Frameworks */,
 				75B86AA0211A8C360026A0B6 /* Accelerate.framework in Frameworks */,
 				75B86A9C211A8B970026A0B6 /* libc++.tbd in Frameworks */,
-				8486214F2479D733006B16AB /* Geomoby.framework in Frameworks */,
+				845932BC247C1FA300E806A3 /* Geomoby.framework in Frameworks */,
 				75B86A9A211A8B8E0026A0B6 /* libz.tbd in Frameworks */,
 				75B86A94211A8B560026A0B6 /* GoogleMaps.framework in Frameworks */,
 				75B86A95211A8B560026A0B6 /* GoogleMapsBase.framework in Frameworks */,
@@ -280,6 +283,8 @@
 				759A6A1E21195DCD00669694 /* Logic */,
 				759A69E3211958D200669694 /* AppDelegate.h */,
 				759A69E4211958D200669694 /* AppDelegate.m */,
+				845932B3247C164E00E806A3 /* URLSessionBackground2.h */,
+				845932B4247C164E00E806A3 /* URLSessionBackground2.m */,
 				759A69EC211958E200669694 /* Assets.xcassets */,
 				759A69EE211958E200669694 /* LaunchScreen.storyboard */,
 				759A69F1211958E200669694 /* Info.plist */,
@@ -291,7 +296,7 @@
 		759A69F9211959C300669694 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8486214D2479D72D006B16AB /* Geomoby.framework */,
+				845932BA247C1F9A00E806A3 /* Geomoby.framework */,
 				752A97C02137C5C300A61297 /* Crashlytics.framework */,
 				752A97C12137C5C300A61297 /* Fabric.framework */,
 				75B86AB5211A8D4D0026A0B6 /* SystemConfiguration.framework */,
@@ -632,6 +637,7 @@
 				759A6A5C2119657E00669694 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				759A69E5211958D200669694 /* AppDelegate.m in Sources */,
 				75A7CA59211BEB8E009B19D6 /* UIFenceNotificationView.m in Sources */,
+				845932B5247C164E00E806A3 /* URLSessionBackground2.m in Sources */,
 				75B86ABA211A99EC0026A0B6 /* NSSettingsManager.m in Sources */,
 				759A6A6721196F2E00669694 /* UISettingsViewController.m in Sources */,
 				759A6A1D21195D3D00669694 /* MainContract.m in Sources */,

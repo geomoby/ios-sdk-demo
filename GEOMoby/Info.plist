@@ -81,6 +81,7 @@
 		<string>bluetooth-peripheral</string>
 		<string>fetch</string>
 		<string>location</string>
+		<string>processing</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
