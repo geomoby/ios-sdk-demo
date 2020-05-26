@@ -15,9 +15,6 @@
 #import "UILeftMenuViewController.h"
 #import "NSSettingsManager.h"
 
-#import "URLSessionBackground2.h"
-
-
 @interface AppDelegate ()
 
 @end
@@ -259,7 +256,7 @@ API_AVAILABLE(ios(10.0)) {
 
     if (data[@"MessageType"] && [data[@"MessageType"] isEqualToString:@"GeomobySyncRequest"])
     {
-        [[Geomoby sharedInstance] getFences];
+        [[Geomoby sharedInstance] updateFences];
 //    https://api.geomoby.com/install/location?install=12389&lat=50.415497&long=30.546451&radius=10000
    
     
