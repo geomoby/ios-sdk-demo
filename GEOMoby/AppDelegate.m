@@ -233,8 +233,8 @@ API_AVAILABLE(ios(10.0)) {
 // Subscribe to topic
 - (void)subscribeToTopic
 {
-    NSLog(@"Subscribing...");
-//    [[FIRMessaging messaging] subscribeToTopic:@"/topics/GeomobySync"];
+    NSLog(@"Subscribed!");
+    [[FIRMessaging messaging] subscribeToTopic:@"/topics/GeomobySync"];
 }
 
 
@@ -256,6 +256,7 @@ API_AVAILABLE(ios(10.0)) {
 {
    
     NSLog(@"Message received - %@", data);
+
     if (data[@"MessageType"] && [data[@"MessageType"] isEqualToString:@"GeomobySyncRequest"])
     {
         [[Geomoby sharedInstance] getFences];
