@@ -48,29 +48,6 @@
     
     NSLog(@"token %@", [[FIRInstanceID instanceID] token]);
     [self updateOnSignificantLocation:launchOptions];
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//        [[Geomoby sharedInstance] getFences];
-//        [[Geomoby sharedInstance] getFences];
-//        [[Geomoby sharedInstance] getFences];
-//    });
-
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//        [[Geomoby sharedInstance] getFences];
-//    });
-//    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
-//        NSString *menu = note.userInfo[@"menu"];
-//        NSLog(@"Closed %@", menu);
-//    }];
-//
-//    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
-//        NSString *menu = note.userInfo[@"menu"];
-//        NSLog(@"Opened %@", menu);
-//    }];
-//
-//    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
-//        NSString *menu = note.userInfo[@"menu"];
-//        NSLog(@"Revealed %@", menu);
-//    }];
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_9_x_Max)
     {
@@ -263,34 +240,6 @@ API_AVAILABLE(ios(10.0)) {
     if (data[@"MessageType"] && [data[@"MessageType"] isEqualToString:@"GeomobySyncRequest"])
     {
         [[Geomoby sharedInstance] updateFences];
-//    https://api.geomoby.com/install/location?install=12389&lat=50.415497&long=30.546451&radius=10000
-   
-    
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//    [request setHTTPMethod:@"GET"];
-//    request.timeoutInterval = 20;
-//    [request setURL:[NSURL URLWithString:@"https://api.geomoby.com/install/location?install=12389&lat=50.415497&long=30.546451&radius=10000"]];
-//
-//    NSLog(@"Request for background");
-//    [[URLSessionBackground2 sharedInstance] sendRequest:request completion:^(NSData * _Nullable responseData, NSError * _Nullable error) {
-//        if(error)
-//            NSLog(@"Error!: %@",error);
-//        else
-//            NSLog(@"No Error!");
-//
-//        NSLog(@"Response Data: %@",responseData);
-//
-//    }];
-    
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//    [request setHTTPMethod:@"GET"];
-//    request.timeoutInterval = 20;
-//    [request setURL:[NSURL URLWithString:@"https://api.geomoby.com/install/location?install=12389&lat=50.415497&long=30.546451&radius=10000"]];
-//    NSHTTPURLResponse *response = nil;
-//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-//    NSLog(@"Request for background %@", responseData);
-    
-    
     }
 }
 
