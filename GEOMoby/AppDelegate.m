@@ -47,6 +47,7 @@
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
     
     NSLog(@"token %@", [[FIRInstanceID instanceID] token]);
+    [self updateOnSignificantLocation:launchOptions];
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 //        [[Geomoby sharedInstance] getFences];
 //        [[Geomoby sharedInstance] getFences];
@@ -100,7 +101,6 @@
     
     return YES;
 }
-
 
 
 
@@ -245,8 +245,14 @@ API_AVAILABLE(ios(10.0)) {
     [self subscribeToTopic];
 }
 
-
-
+//Significant location updates
+- (void)updateOnSignificantLocation: (NSDictionary *) userDict {
+    if (userDict) {
+        if ([userDict objectForKey:@"location"]) {
+            [[Geomoby sharedInstance] updateFences];
+        }
+    }
+}
 
 // Receive message
 - (void)onMessageReceived:(NSDictionary *)data
