@@ -225,7 +225,7 @@ API_AVAILABLE(ios(10.0)) {
 //Significant location updates
 - (void)updateOnSignificantLocation: (NSDictionary *) userDict {
     if (userDict) {
-        if ([userDict objectForKey:@"location"]) {
+        if ([userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
             [[Geomoby sharedInstance] updateFences];
         }
     }
