@@ -14,6 +14,7 @@
 #import "SlideNavigationController.h"
 #import "UILeftMenuViewController.h"
 #import "NSSettingsManager.h"
+#import "GEOMoby.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +31,11 @@
     [FIRApp configure];
     [FIRMessaging messaging].delegate = self;
 
-
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter]; [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert)
+                     completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                     }];
+    }
     
     [[NSSettingsManager sharedInstance] LoadFromFile];
     [[NSSettingsManager sharedInstance] setValue:@"k_mapSDK" int:1];
@@ -47,6 +52,7 @@
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
     
     NSLog(@"token %@", [[FIRInstanceID instanceID] token]);
+    [GEOMobyModel sharedInstance];
     [self updateOnSignificantLocation:launchOptions];
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_9_x_Max)
@@ -91,11 +97,14 @@
      
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[Geomoby sharedInstance] applicationDidEnterBackground];
+//    [self sendNotification];
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [[Geomoby sharedInstance] applicationWillEnterForeground];
 }
 
 
@@ -226,8 +235,27 @@ API_AVAILABLE(ios(10.0)) {
 - (void)updateOnSignificantLocation: (NSDictionary *) userDict {
     if (userDict) {
         if ([userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
-            [[Geomoby sharedInstance] updateFences];
+            [[Geomoby sharedInstance] getFences];
+            [self sendNotification: userDict];
         }
+    } else {
+        [[Geomoby sharedInstance] updateFences];
+    }
+}
+
+- (void)sendNotification: (NSDictionary *) dict {
+    if (@available(iOS 10.0, *)) {
+    UNMutableNotificationContent *objNotificationContent = [[UNMutableNotificationContent alloc] init];
+        objNotificationContent.title = [NSString localizedUserNotificationStringForKey:@"Notification!" arguments:nil];
+        objNotificationContent.body = (dict) ? [dict allKeys].description :[NSString localizedUserNotificationStringForKey:@"SLC update!"arguments:nil];
+    objNotificationContent.sound = [UNNotificationSound defaultSound];
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:NO];
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"ten"
+                                                                          content:objNotificationContent trigger:trigger];
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        
+    }];
     }
 }
 

@@ -156,4 +156,6 @@ extern NSString* const VERSION;
 -(void)clearAttempts;
 
 -(void)setSavedCompletionHandler:(EmptyCompletionBlock)savedCompletionHandler;
+-(void)applicationDidEnterBackground;
+-(void)applicationWillEnterForeground;
 @end
