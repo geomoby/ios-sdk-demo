@@ -27,6 +27,9 @@
     
     [[UIApplication sharedApplication] registerForRemoteNotifications];
  
+//    [GEOMobyModel sharedInstance];
+    [self updateOnSignificantLocation:launchOptions];
+
     // Firebase configure
     [FIRApp configure];
     [FIRMessaging messaging].delegate = self;
@@ -52,9 +55,6 @@
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
     
     NSLog(@"token %@", [[FIRInstanceID instanceID] token]);
-    [GEOMobyModel sharedInstance];
-    [self updateOnSignificantLocation:launchOptions];
-    
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_9_x_Max)
     {
         UIUserNotificationType allNotificationTypes =
@@ -98,6 +98,7 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[Geomoby sharedInstance] applicationDidEnterBackground];
+    [[Geomoby sharedInstance] getFences];
 //    [self sendNotification];
 }
 
@@ -235,11 +236,10 @@ API_AVAILABLE(ios(10.0)) {
 - (void)updateOnSignificantLocation: (NSDictionary *) userDict {
     if (userDict) {
         if ([userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
-            [[Geomoby sharedInstance] getFences];
             [self sendNotification: userDict];
+            [[Geomoby sharedInstance] updateFences];
+            [[Geomoby sharedInstance] applicationDidEnterBackground];
         }
-    } else {
-        [[Geomoby sharedInstance] updateFences];
     }
 }
 
@@ -247,10 +247,10 @@ API_AVAILABLE(ios(10.0)) {
     if (@available(iOS 10.0, *)) {
     UNMutableNotificationContent *objNotificationContent = [[UNMutableNotificationContent alloc] init];
         objNotificationContent.title = [NSString localizedUserNotificationStringForKey:@"Notification!" arguments:nil];
-        objNotificationContent.body = (dict) ? [dict allKeys].description :[NSString localizedUserNotificationStringForKey:@"SLC update!"arguments:nil];
+        objNotificationContent.body = (dict) ? [NSDate date].description :[NSString localizedUserNotificationStringForKey:@"SLC update!"arguments:nil];
     objNotificationContent.sound = [UNNotificationSound defaultSound];
     UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:NO];
-    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"ten"
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:[NSDate date].description
                                                                           content:objNotificationContent trigger:trigger];
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
