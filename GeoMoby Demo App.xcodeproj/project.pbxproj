@@ -83,8 +83,8 @@
 		75B86AC0211AC2C90026A0B6 /* UIObjectsMapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B86ABF211AC2C90026A0B6 /* UIObjectsMapKit.m */; };
 		75D43CE8211986AE006BADAD /* UILeftMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D43CE6211986AE006BADAD /* UILeftMenuTableViewCell.m */; };
 		75D43CE9211986AE006BADAD /* UILeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75D43CE7211986AE006BADAD /* UILeftMenuTableViewCell.xib */; };
-		8426C8AB249AEF9000B6ADF2 /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8426C8A9249AEF8900B6ADF2 /* Geomoby.framework */; };
-		8426C8AC249AEF9000B6ADF2 /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8426C8A9249AEF8900B6ADF2 /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8426C8CF249BA7B200B6ADF2 /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8426C8CD249BA7A600B6ADF2 /* Geomoby.framework */; };
+		8426C8D0249BA7B300B6ADF2 /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8426C8CD249BA7A600B6ADF2 /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,7 +94,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8426C8AC249AEF9000B6ADF2 /* Geomoby.framework in Embed Frameworks */,
+				8426C8D0249BA7B300B6ADF2 /* Geomoby.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +206,7 @@
 		75D43CE6211986AE006BADAD /* UILeftMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UILeftMenuTableViewCell.m; sourceTree = "<group>"; };
 		75D43CE7211986AE006BADAD /* UILeftMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UILeftMenuTableViewCell.xib; sourceTree = "<group>"; };
 		75E657C721AD4356006B6994 /* Untitled.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Untitled.gpx; path = GEOMoby/Untitled.gpx; sourceTree = "<group>"; };
-		8426C8A9249AEF8900B6ADF2 /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Geomoby.framework; sourceTree = "<group>"; };
+		8426C8CD249BA7A600B6ADF2 /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Geomoby.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +229,7 @@
 				75B86AA2211A8C460026A0B6 /* CoreData.framework in Frameworks */,
 				75B86AA0211A8C360026A0B6 /* Accelerate.framework in Frameworks */,
 				75B86A9C211A8B970026A0B6 /* libc++.tbd in Frameworks */,
-				8426C8AB249AEF9000B6ADF2 /* Geomoby.framework in Frameworks */,
+				8426C8CF249BA7B200B6ADF2 /* Geomoby.framework in Frameworks */,
 				75B86A9A211A8B8E0026A0B6 /* libz.tbd in Frameworks */,
 				75B86A94211A8B560026A0B6 /* GoogleMaps.framework in Frameworks */,
 				75B86A95211A8B560026A0B6 /* GoogleMapsBase.framework in Frameworks */,
@@ -291,7 +291,7 @@
 		759A69F9211959C300669694 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8426C8A9249AEF8900B6ADF2 /* Geomoby.framework */,
+				8426C8CD249BA7A600B6ADF2 /* Geomoby.framework */,
 				752A97C02137C5C300A61297 /* Crashlytics.framework */,
 				752A97C12137C5C300A61297 /* Fabric.framework */,
 				75B86AB5211A8D4D0026A0B6 /* SystemConfiguration.framework */,
