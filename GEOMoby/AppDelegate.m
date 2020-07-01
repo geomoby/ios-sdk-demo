@@ -237,7 +237,7 @@ API_AVAILABLE(ios(10.0)) {
     if (userDict) {
         if ([userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
             [self sendNotification: userDict];
-            [[Geomoby sharedInstance] updateFences];
+            [[Geomoby sharedInstance] updateSLC];
             [[Geomoby sharedInstance] applicationDidEnterBackground];
         }
     }
