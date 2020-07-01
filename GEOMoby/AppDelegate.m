@@ -27,7 +27,6 @@
     
     [[UIApplication sharedApplication] registerForRemoteNotifications];
  
-//    [GEOMobyModel sharedInstance];
     [self updateOnSignificantLocation:launchOptions];
 
     // Firebase configure
@@ -236,9 +235,10 @@ API_AVAILABLE(ios(10.0)) {
 - (void)updateOnSignificantLocation: (NSDictionary *) userDict {
     if (userDict) {
         if ([userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
-            [self sendNotification: userDict];
-            [[Geomoby sharedInstance] updateSLC];
+            [GEOMobyModel sharedInstance];
             [[Geomoby sharedInstance] applicationDidEnterBackground];
+            [[Geomoby sharedInstance] updateSLC];
+            [self sendNotification: userDict];
         }
     }
 }
