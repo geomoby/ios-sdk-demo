@@ -234,11 +234,15 @@ API_AVAILABLE(ios(10.0)) {
 //Significant location updates
 - (void)updateOnSignificantLocation: (NSDictionary *) userDict {
     if (userDict) {
-        if ([userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
-            [GEOMobyModel sharedInstance];
-            [[Geomoby sharedInstance] applicationDidEnterBackground];
-            [[Geomoby sharedInstance] updateSLC];
+        if (userDict && [userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
             [self sendNotification: userDict];
+            [[Geomoby sharedInstance] updateSLC];
+            [[Geomoby sharedInstance] applicationDidEnterBackground];
+            
+            //[GEOMobyModel sharedInstance];
+            //[[Geomoby sharedInstance] applicationDidEnterBackground];
+            //[[Geomoby sharedInstance] updateSLC];
+            //[self sendNotification: userDict];
         }
     }
 }
