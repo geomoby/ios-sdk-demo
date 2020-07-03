@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Geomoby.h</key>
 		<data>
-		axeUlGMQXQhAA1sYoK2IsTaLqGw=
+		pwNGLXhvO8jCYgXW7SUR1+F+NVk=
 		</data>
 		<key>Headers/GeomobyActionBasic.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ZX0+0Zr7EKVsD6I/c0AUeFTD9us=
+		mBSvYPQ3Ms1EYc8FseaKm/yniMs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			axeUlGMQXQhAA1sYoK2IsTaLqGw=
+			pwNGLXhvO8jCYgXW7SUR1+F+NVk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ivq8o4DCE5ixinQGA6f8MVjvOJSgTuTZyWre4S43jS0=
+			XSVGTT+1DjCP94XUBj5UgSGrO+l4+ney8DBu897tQXQ=
 			</data>
 		</dict>
 		<key>Headers/GeomobyActionBasic.h</key>

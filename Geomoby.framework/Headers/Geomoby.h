@@ -135,6 +135,7 @@ extern NSString* const VERSION;
 -(void)stop;
 -(void)updateInstanceId:(NSString *)token;
 -(void)updateFences;
+-(void)updateSLC;
 
 -(void)installDevice;
 -(void)getInstallID;
