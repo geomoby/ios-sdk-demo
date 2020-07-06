@@ -15,6 +15,8 @@
 #import "UILeftMenuViewController.h"
 #import "NSSettingsManager.h"
 #import "GEOMoby.h"
+#import "UIMainViewController.h"
+#import "SlideNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -177,7 +179,14 @@
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler
 API_AVAILABLE(ios(10.0)){
-//    NSLog(@"didReceiveNotificationResponse");
+    
+    [self onMessageReceived: response.notification.request.content.userInfo];
+    NSInteger identifier = [response.notification.request.content.userInfo valueForKey:@"id"];
+    SlideNavigationController *menu = self.window.rootViewController;
+    UIMainViewController *controller = menu.topViewController;
+    [controller newAction:3];
+    
+    NSLog(@"didReceiveNotificationResponse");
 }
 
 
