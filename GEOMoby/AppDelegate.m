@@ -15,6 +15,8 @@
 #import "UILeftMenuViewController.h"
 #import "NSSettingsManager.h"
 #import "GEOMoby.h"
+#import "UIMainViewController.h"
+#import "SlideNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -94,9 +96,6 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-     
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[Geomoby sharedInstance] applicationDidEnterBackground];
     [[Geomoby sharedInstance] getFences];
 //    [self sendNotification];
@@ -153,7 +152,6 @@
 // Recieve remote notifications
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-//    NSLog(@"didReceiveRemoteNotification");
     [self onMessageReceived:userInfo];
 }
 
@@ -163,13 +161,8 @@
 // Recieve remote notifications
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler
 {
- //   NSLog(@"didReceiveRemoteNotification fetchCompletionHandler");
-//    https://api.geomoby.com/install/location?install=11901&lat=50.415520&long=30.546416&radius=10000
     [self onMessageReceived:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
-//    [[URLSessionBackground2 sharedInstance] setSavedCompletionHandler:^{
-//       completionHandler(UIBackgroundFetchResultNewData);
-//    }];
 }
 
 
@@ -177,7 +170,14 @@
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler
 API_AVAILABLE(ios(10.0)){
-//    NSLog(@"didReceiveNotificationResponse");
+    
+    [self onMessageReceived: response.notification.request.content.userInfo];
+    NSInteger identifier = [response.notification.request.content.userInfo valueForKey:@"id"];
+    SlideNavigationController *menu = self.window.rootViewController;
+    UIMainViewController *controller = menu.topViewController;
+    [controller newAction:3];
+    
+    NSLog(@"didReceiveNotificationResponse");
 }
 
 
@@ -232,15 +232,16 @@ API_AVAILABLE(ios(10.0)) {
     [self subscribeToTopic];
 }
 
-//Significant location updates
+// Significant location updates
 - (void)updateOnSignificantLocation: (NSDictionary *) userDict {
     if (userDict) {
         if (userDict && [userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
-            [self sendNotification: userDict];
+    
+            //[self sendNotification: userDict]; // FOR TESTING PURPOSES ONLY
+
             [[Geomoby sharedInstance] updateSLC];
             [[Geomoby sharedInstance] applicationDidEnterBackground];
         }
-    }
 }
 
 - (void)sendNotification: (NSDictionary *) dict {
