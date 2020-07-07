@@ -27,6 +27,7 @@
     
     [[UIApplication sharedApplication] registerForRemoteNotifications];
  
+    [[Geomoby alloc] initWithAppKey: @"46WKUL6S"]; // need to refactor this
     [self updateOnSignificantLocation:launchOptions];
 
     // Firebase configure
@@ -238,11 +239,6 @@ API_AVAILABLE(ios(10.0)) {
             [self sendNotification: userDict];
             [[Geomoby sharedInstance] updateSLC];
             [[Geomoby sharedInstance] applicationDidEnterBackground];
-            
-            //[GEOMobyModel sharedInstance];
-            //[[Geomoby sharedInstance] applicationDidEnterBackground];
-            //[[Geomoby sharedInstance] updateSLC];
-            //[self sendNotification: userDict];
         }
     }
 }
