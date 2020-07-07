@@ -96,9 +96,6 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-     
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[Geomoby sharedInstance] applicationDidEnterBackground];
     [[Geomoby sharedInstance] getFences];
 //    [self sendNotification];
@@ -155,7 +152,6 @@
 // Recieve remote notifications
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-//    NSLog(@"didReceiveRemoteNotification");
     [self onMessageReceived:userInfo];
 }
 
@@ -165,13 +161,8 @@
 // Recieve remote notifications
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler
 {
- //   NSLog(@"didReceiveRemoteNotification fetchCompletionHandler");
-//    https://api.geomoby.com/install/location?install=11901&lat=50.415520&long=30.546416&radius=10000
     [self onMessageReceived:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
-//    [[URLSessionBackground2 sharedInstance] setSavedCompletionHandler:^{
-//       completionHandler(UIBackgroundFetchResultNewData);
-//    }];
 }
 
 
@@ -241,14 +232,12 @@ API_AVAILABLE(ios(10.0)) {
     [self subscribeToTopic];
 }
 
-//Significant location updates
+// Significant location updates
 - (void)updateOnSignificantLocation: (NSDictionary *) userDict {
         if (userDict && [userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
-            
-            [self sendNotification: userDict];
+    
+            //[self sendNotification: userDict]; // FOR TESTING PURPOSES ONLY
             [[Geomoby sharedInstance] updateSLC];
-            
-            [[Geomoby sharedInstance] updateFences];
             [[Geomoby sharedInstance] applicationDidEnterBackground];
         }
 }
