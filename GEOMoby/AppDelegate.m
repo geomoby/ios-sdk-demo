@@ -242,6 +242,7 @@ API_AVAILABLE(ios(10.0)) {
             [[Geomoby sharedInstance] updateSLC];
             [[Geomoby sharedInstance] applicationDidEnterBackground];
         }
+    }
 }
 
 - (void)sendNotification: (NSDictionary *) dict {
