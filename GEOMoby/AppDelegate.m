@@ -221,7 +221,7 @@ API_AVAILABLE(ios(10.0)) {
     NSLog(@"scheduleBackgroundUpdateFences");
     
     BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:@"com.demoapp.updateFences"];
-    request.earliestBeginDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 5]; //[[NSDate alloc] initWithTimeIntervalSinceNow: 30 * 60 * 60];
+    request.earliestBeginDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 30 * 60];
     NSError *error = NULL;
     BOOL success = [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error: &error];
     if (!success) {
