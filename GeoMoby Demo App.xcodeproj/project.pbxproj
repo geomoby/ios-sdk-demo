@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E72CFC124B0C5980093661A /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E72CFC024B0C5980093661A /* Geomoby.framework */; };
-		5E72CFC224B0C59E0093661A /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E72CFC024B0C5980093661A /* Geomoby.framework */; };
-		5E72CFC324B0C59E0093661A /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E72CFC024B0C5980093661A /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5E268F7A24E3087400DA48CC /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E268F7924E3087400DA48CC /* Geomoby.framework */; };
+		5E268F7B24E3087C00DA48CC /* Geomoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E268F7924E3087400DA48CC /* Geomoby.framework */; };
+		5E268F7C24E3087C00DA48CC /* Geomoby.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E268F7924E3087400DA48CC /* Geomoby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		752A97C22137C5C300A61297 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752A97C02137C5C300A61297 /* Crashlytics.framework */; };
 		752A97C32137C5C300A61297 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752A97C12137C5C300A61297 /* Fabric.framework */; };
 		752A97C62137DFCC00A61297 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 752A97C52137DFCC00A61297 /* GoogleService-Info.plist */; };
@@ -95,7 +95,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5E72CFC324B0C59E0093661A /* Geomoby.framework in Embed Frameworks */,
+				5E268F7C24E3087C00DA48CC /* Geomoby.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,7 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E72CFC024B0C5980093661A /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Geomoby.framework; sourceTree = "<group>"; };
+		5E268F7924E3087400DA48CC /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Geomoby.framework; sourceTree = "<group>"; };
 		752A97C02137C5C300A61297 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = GEOMoby/Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
 		752A97C12137C5C300A61297 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = GEOMoby/Frameworks/Fabric.framework; sourceTree = "<group>"; };
 		752A97C52137DFCC00A61297 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 				75B86AB4211A8D460026A0B6 /* QuartzCore.framework in Frameworks */,
 				75B86AB2211A8CB60026A0B6 /* OpenGLES.framework in Frameworks */,
 				75B86AB0211A8CAC0026A0B6 /* ImageIO.framework in Frameworks */,
-				5E72CFC224B0C59E0093661A /* Geomoby.framework in Frameworks */,
+				5E268F7B24E3087C00DA48CC /* Geomoby.framework in Frameworks */,
 				75B86AAE211A8CA20026A0B6 /* GLKit.framework in Frameworks */,
 				75B86AAC211A8C970026A0B6 /* CoreText.framework in Frameworks */,
 				75B86AAA211A8C8C0026A0B6 /* CoreTelephony.framework in Frameworks */,
@@ -231,7 +231,7 @@
 				75B86AA2211A8C460026A0B6 /* CoreData.framework in Frameworks */,
 				75B86AA0211A8C360026A0B6 /* Accelerate.framework in Frameworks */,
 				75B86A9C211A8B970026A0B6 /* libc++.tbd in Frameworks */,
-				5E72CFC124B0C5980093661A /* Geomoby.framework in Frameworks */,
+				5E268F7A24E3087400DA48CC /* Geomoby.framework in Frameworks */,
 				75B86A9A211A8B8E0026A0B6 /* libz.tbd in Frameworks */,
 				75B86A94211A8B560026A0B6 /* GoogleMaps.framework in Frameworks */,
 				75B86A95211A8B560026A0B6 /* GoogleMapsBase.framework in Frameworks */,
@@ -293,7 +293,7 @@
 		759A69F9211959C300669694 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5E72CFC024B0C5980093661A /* Geomoby.framework */,
+				5E268F7924E3087400DA48CC /* Geomoby.framework */,
 				752A97C02137C5C300A61297 /* Crashlytics.framework */,
 				752A97C12137C5C300A61297 /* Fabric.framework */,
 				75B86AB5211A8D4D0026A0B6 /* SystemConfiguration.framework */,
@@ -792,7 +792,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GEOMoby/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -818,7 +818,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GEOMoby/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

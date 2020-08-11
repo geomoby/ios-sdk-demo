@@ -17,6 +17,7 @@
 #import "GEOMoby.h"
 #import "UIMainViewController.h"
 #import "SlideNavigationController.h"
+#import <BackgroundTasks/BackgroundTasks.h>
 
 @interface AppDelegate ()
 
@@ -84,6 +85,14 @@
 #endif
     }
     
+    if (@available(iOS 13.0, *)) {
+        [[BGTaskScheduler sharedScheduler] registerForTaskWithIdentifier:@"com.demoapp.updateFences"
+                                                              usingQueue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+                                                           launchHandler:^(BGTask *task) {
+            [self handleAppRefresh: task];
+        }];
+    }
+    
     return YES;
 }
 
@@ -98,6 +107,10 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [[Geomoby sharedInstance] applicationDidEnterBackground];
     [[Geomoby sharedInstance] getFences];
+    
+    if (@available(iOS 13.0, *)) {
+        [self scheduleBackgroundUpdateFences];
+    }
 //    [self sendNotification];
 }
 
@@ -189,11 +202,32 @@ API_AVAILABLE(ios(10.0)) {
     completionHandler(UNNotificationPresentationOptionNone);
 }
 
+// Background Task Scheduler
+// iOS <13
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    [self onMessageReceived:nil];
+
+    [[Geomoby sharedInstance] updateFences];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
+// iOS >= 13
+- (void)handleAppRefresh: (BGTask *) task  API_AVAILABLE(ios(13.0)) {
+    [[Geomoby sharedInstance] updateFences];
+    [task setTaskCompletedWithSuccess:YES];
+    [self scheduleBackgroundUpdateFences];
+}
+
+- (void)scheduleBackgroundUpdateFences API_AVAILABLE(ios(13.0)) {
+    NSLog(@"scheduleBackgroundUpdateFences");
+    
+    BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:@"com.demoapp.updateFences"];
+    request.earliestBeginDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 5]; //[[NSDate alloc] initWithTimeIntervalSinceNow: 30 * 60 * 60];
+    NSError *error = NULL;
+    BOOL success = [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error: &error];
+    if (!success) {
+        NSLog(@"Failed to submit request: %@",error);
+    }
+}
 
 // Receive token
 - (void)messaging:(nonnull FIRMessaging *)messaging didRefreshRegistrationToken:(nonnull NSString *)fcmToken
