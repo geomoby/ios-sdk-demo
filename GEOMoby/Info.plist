@@ -45,15 +45,15 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Use for location</string>
+	<string>Used for location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Use for location</string>
+	<string>Used for location</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Use for location</string>
+	<string>Used for location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Use for location</string>
+	<string>Used for location</string>
 	<key>NSMotionUsageDescription</key>
-	<string>This app needs to be able to access your motion use</string>
+	<string>This app needs to be able to access your motion activity</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Black.ttf</string>

@@ -30,7 +30,9 @@
     
     [[UIApplication sharedApplication] registerForRemoteNotifications];
  
-    [[Geomoby alloc] initWithAppKey: @"46WKUL6S"]; // need to refactor this
+    //[[Geomoby alloc] initWithAppKey: @"46WKUL6S"];
+    [GEOMobyModel sharedInstance];
+    
     [self updateOnSignificantLocation:launchOptions];
 
     // Firebase configure
@@ -106,7 +108,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [[Geomoby sharedInstance] applicationDidEnterBackground];
-    [[Geomoby sharedInstance] getFences];
+    [[Geomoby sharedInstance] updateFences];
     
     if (@available(iOS 13.0, *)) {
         [self scheduleBackgroundUpdateFences];
@@ -162,7 +164,7 @@
 
 
 
-// Recieve remote notifications
+// Receive remote notifications
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     [self onMessageReceived:userInfo];
@@ -171,7 +173,7 @@
 
 
 
-// Recieve remote notifications
+// Receive remote notifications
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler
 {
     [self onMessageReceived:userInfo];
@@ -221,7 +223,8 @@ API_AVAILABLE(ios(10.0)) {
     NSLog(@"scheduleBackgroundUpdateFences");
     
     BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:@"com.demoapp.updateFences"];
-    request.earliestBeginDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 30 * 60];
+    // Fetch no earlier than 30 minutes from now
+    request.earliestBeginDate = [[NSDate alloc] initWithTimeIntervalSinceNow: 10 * 60];
     NSError *error = NULL;
     BOOL success = [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error: &error];
     if (!success) {
@@ -273,8 +276,8 @@ API_AVAILABLE(ios(10.0)) {
     
             //[self sendNotification: userDict]; // FOR TESTING PURPOSES ONLY
 
-            [[Geomoby sharedInstance] updateSLC];
-            [[Geomoby sharedInstance] applicationDidEnterBackground];
+            [[Geomoby sharedInstance] updateFences];
+            //[[Geomoby sharedInstance] applicationDidEnterBackground];
         }
     }
 }
