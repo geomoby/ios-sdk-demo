@@ -184,25 +184,34 @@
 
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler
-API_AVAILABLE(ios(10.0)){
+    API_AVAILABLE(ios(10.0)){
     
-    [self onMessageReceived: response.notification.request.content.userInfo];
-    NSInteger identifier = [response.notification.request.content.userInfo valueForKey:@"id"];
-    SlideNavigationController *menu = self.window.rootViewController;
-    UIMainViewController *controller = menu.topViewController;
-    [controller newAction:3];
+        [self onMessageReceived: response.notification.request.content.userInfo];
+        NSString *identifier = [response.notification.request.content.userInfo valueForKey:@"id"];
+        SlideNavigationController *menu = self.window.rootViewController;
+        UIMainViewController *controller = menu.topViewController;
     
-    NSLog(@"didReceiveNotificationResponse");
-}
+    
+    
+    if ([menu.topViewController isKindOfClass: [UIMainViewController class]]) {
+           UIMainViewController *controller = menu.topViewController;
+           [controller newAction: [identifier intValue]];
+       } else {
+           [menu popToRootViewControllerAnimated:false];
+           UIMainViewController *controller = menu.topViewController;
+           [controller newAction: [identifier intValue]];
+       }
+    
+        //NSLog(@"didReceiveNotificationResponse");
+    }
 
 
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
-API_AVAILABLE(ios(10.0)) {
-//    NSLog(@"willPresentNotification");
-    [self onMessageReceived:notification.request.content.userInfo];
-    completionHandler(UNNotificationPresentationOptionNone);
-}
+    API_AVAILABLE(ios(10.0)) {
+        [self onMessageReceived:notification.request.content.userInfo];
+        completionHandler(UNNotificationPresentationOptionNone);
+    }
 
 // Background Task Scheduler
 // iOS <13
@@ -220,7 +229,7 @@ API_AVAILABLE(ios(10.0)) {
 }
 
 - (void)scheduleBackgroundUpdateFences API_AVAILABLE(ios(13.0)) {
-    NSLog(@"scheduleBackgroundUpdateFences");
+    NSLog(@"Scheduling Background UpdateFences...");
     
     BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:@"com.demoapp.updateFences"];
     // Fetch no earlier than 30 minutes from now
@@ -274,8 +283,8 @@ API_AVAILABLE(ios(10.0)) {
     if (userDict) {
         if (userDict && [userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
     
-            //[self sendNotification: userDict]; // FOR TESTING PURPOSES ONLY
-
+            //[self sendNotification: userDict]; // FOR TESTING PURPOSES ONLY WHEN APP IS TERMINATED
+            NSLog(@"Significant Location Change!");
             [[Geomoby sharedInstance] updateFences];
             //[[Geomoby sharedInstance] applicationDidEnterBackground];
         }
