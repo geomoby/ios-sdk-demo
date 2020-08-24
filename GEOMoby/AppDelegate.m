@@ -113,7 +113,6 @@
     if (@available(iOS 13.0, *)) {
         [self scheduleBackgroundUpdateFences];
     }
-//    [self sendNotification];
 }
 
 
@@ -279,14 +278,19 @@
 }
 
 // Significant location updates
+// When there is a significant changes of the location,
+// The key UIApplicationLaunchOptionsLocationKey will be returned from didFinishLaunchingWithOptions
+// When the app is receiving the key, it must reinitiate the locationManager and get the latest location updates.
+// This UIApplicationLaunchOptionsLocationKey key enables the location update even when
+// the app has been killed/terminated (Not in the background) by iOS or the user.
 - (void)updateOnSignificantLocation: (NSDictionary *) userDict {
     if (userDict) {
         if (userDict && [userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
     
-            //[self sendNotification: userDict]; // FOR TESTING PURPOSES ONLY WHEN APP IS TERMINATED
+            //[self sendNotification: userDict]; // FOR TESTING PURPOSES
             NSLog(@"Significant Location Change!");
             [[Geomoby sharedInstance] updateFences];
-            //[[Geomoby sharedInstance] applicationDidEnterBackground];
+            [[Geomoby sharedInstance] applicationDidEnterBackground];
         }
     }
 }

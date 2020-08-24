@@ -44,12 +44,11 @@ static NSString *const kAPIKey = @"46WKUL6S";
         if ([[Geomoby alloc] initWithAppKey:kAPIKey])
         {
             [[Geomoby sharedInstance]  setDevMode:true];
-            [[Geomoby sharedInstance]  setUUID:@"30cab38c-6921-43f4-b005-24af1e070ff3"];
+            [[Geomoby sharedInstance]  setUUID:@"1f7826da6-4fa2-4e98-8024-bc5b71e0893e"];
             
-            [[Geomoby sharedInstance]  setSilenceWindowStart:23 andStop:5];
+            [[Geomoby sharedInstance]  setSilenceWindowStart:5 andStop:6];
             [[Geomoby sharedInstance]  setDelegate:self];
              m_geoMobyInit = YES;
-            //[self a:3];
         }
     }
     return self;

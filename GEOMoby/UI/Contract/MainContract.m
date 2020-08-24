@@ -124,6 +124,8 @@
 - (void)GEOMobyUpdatedInitLocation:(CLLocation *)location {
     if (m_viewDelgate)
     {
+         //[self sendNotification: [NSDictionary new]]; // FOR TESTING PURPOSES ONLY - CHECK THAT SLC IS WORKING!
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([[UIApplication sharedApplication] applicationState] != UIApplicationStateBackground)
             {
@@ -169,6 +171,23 @@
             
             [self->m_viewDelgate generatePolygoneOnMap];
         });
+    }
+}
+
+
+- (void)sendNotification: (NSDictionary *) dict {
+    if (@available(iOS 10.0, *)) {
+    UNMutableNotificationContent *objNotificationContent = [[UNMutableNotificationContent alloc] init];
+        objNotificationContent.title = [NSString localizedUserNotificationStringForKey:@"Notification!" arguments:nil];
+        objNotificationContent.body = (dict) ? [NSDate date].description :[NSString localizedUserNotificationStringForKey:@"SLC update!"arguments:nil];
+    objNotificationContent.sound = [UNNotificationSound defaultSound];
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:NO];
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:[NSDate date].description
+                                                                          content:objNotificationContent trigger:trigger];
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        
+    }];
     }
 }
 
