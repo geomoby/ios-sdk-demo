@@ -129,7 +129,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([[UIApplication sharedApplication] applicationState] != UIApplicationStateBackground)
             {
-                [self->m_viewDelgate updateCurrentLoction:location];
+                [self->m_viewDelgate updateCurrentLocation:location];
             }
         });
     }

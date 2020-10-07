@@ -103,6 +103,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0812CA6724F377E1003FD5A2 /* scarbs_to_geomoby.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = scarbs_to_geomoby.gpx; path = ../../../Downloads/scarbs_to_geomoby.gpx; sourceTree = "<group>"; };
+		0812CA6824F377F3003FD5A2 /* Atlanta_To_SandySprings.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Atlanta_To_SandySprings.gpx; path = ../../../Downloads/Atlanta_To_SandySprings.gpx; sourceTree = "<group>"; };
+		0812CA6924F5442B003FD5A2 /* geo-to-subi-walk.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "geo-to-subi-walk.gpx"; path = "../../../Downloads/geo-to-subi-walk.gpx"; sourceTree = "<group>"; };
 		5E268F7924E3087400DA48CC /* Geomoby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Geomoby.framework; sourceTree = "<group>"; };
 		752A97C02137C5C300A61297 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = GEOMoby/Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
 		752A97C12137C5C300A61297 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = GEOMoby/Frameworks/Fabric.framework; sourceTree = "<group>"; };
@@ -255,6 +258,9 @@
 		759A69D7211958D200669694 = {
 			isa = PBXGroup;
 			children = (
+				0812CA6924F5442B003FD5A2 /* geo-to-subi-walk.gpx */,
+				0812CA6824F377F3003FD5A2 /* Atlanta_To_SandySprings.gpx */,
+				0812CA6724F377E1003FD5A2 /* scarbs_to_geomoby.gpx */,
 				75E657C721AD4356006B6994 /* Untitled.gpx */,
 				752A97D92137FC5100A61297 /* GeoMoby Demo App.entitlements */,
 				75A7CA84211C672F009B19D6 /* Route2.gpx */,

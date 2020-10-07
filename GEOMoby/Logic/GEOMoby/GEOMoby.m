@@ -44,14 +44,14 @@ static NSString *const kAPIKey = @"46WKUL6S";
         if ([[Geomoby alloc] initWithAppKey:kAPIKey])
         {
             [[Geomoby sharedInstance]  setDevMode:true];
-            [[Geomoby sharedInstance]  setUUID:@"1f7826da6-4fa2-4e98-8024-bc5b71e0893e"];
+            [[Geomoby sharedInstance]  setUUID:@"f7826da6-4fa2-4e98-8024-bc5b71e0893e"];
             
             [[Geomoby sharedInstance]  setSilenceWindowStart:5 andStop:6];
             [[Geomoby sharedInstance]  setDelegate:self];
              m_geoMobyInit = YES;
         }
     }
-    return self;
+    return self;                                                          
 }
 
 //- (void)a:(int)buttonIndex
@@ -163,7 +163,10 @@ static NSString *const kAPIKey = @"46WKUL6S";
     }
 }
 
--(void)updatedInitLocation:(CLLocation *)location
+-(void)
+
+
+:(CLLocation *)location
 {
     for(id<GEOMobyModelDelegate> instance in [m_delegates objectEnumerator])
     {

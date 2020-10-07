@@ -112,7 +112,7 @@
         CLLocation *curLoc = [self->m_presenter getLastCurrentLocation];
         if (curLoc)
         {
-            [self updateCurrentLoction:curLoc];
+            [self updateCurrentLocation:curLoc];
         }
         [self->m_mapKit setMapShowMode:mapMode];
   });
@@ -128,7 +128,7 @@
     CLLocation *curLoc = [m_presenter getLastCurrentLocation];
     if (curLoc)
     {
-        [self updateCurrentLoction:curLoc];
+        [self updateCurrentLocation:curLoc];
     }
 }
 
@@ -141,7 +141,7 @@
     CLLocation *curLoc = [m_presenter getLastCurrentLocation];
     if (curLoc)
     {
-         [self updateCurrentLoction:curLoc];
+         [self updateCurrentLocation:curLoc];
     }
     
     [[m_mapKit view] addObserver:self forKeyPath:@"myLocation.coordinate" options:0 context:NULL];
@@ -246,7 +246,7 @@
 }
 
 #pragma mark - MainContract Methods -
--(void) updateCurrentLoction:(CLLocation *) _location
+-(void) updateCurrentLocation:(CLLocation *) _location
 {
          [m_mapKit SetCurrentLocation:_location];
 }

@@ -14,7 +14,7 @@
 
 @protocol MainViewDelegate
 @optional
--(void) updateCurrentLoction:(CLLocation *) _location;
+-(void) updateCurrentLocation:(CLLocation *) _location;
 -(void) updateDistanceToFence:(double) _distance;
 -(void) updateBeaconScane:(bool) _state;
 -(void) newActionArrived:(GeomobyActionBasic*) _action;

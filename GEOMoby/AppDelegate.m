@@ -287,7 +287,7 @@
     if (userDict) {
         if (userDict && [userDict objectForKey: UIApplicationLaunchOptionsLocationKey]) {
     
-            //[self sendNotification: userDict]; // FOR TESTING PURPOSES
+            [self sendNotification: userDict]; // FOR TESTING PURPOSES
             NSLog(@"Significant Location Change!");
             [[Geomoby sharedInstance] updateFences];
             [[Geomoby sharedInstance] applicationDidEnterBackground];
